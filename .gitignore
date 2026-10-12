@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# exclude hidden files and directories, except .gitignore and .keep
+.*
+!.gitignore
+!.keep
+# response Folder
+/response
