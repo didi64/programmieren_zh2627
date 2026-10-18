@@ -1,0 +1,100 @@
+- Slides aktuallisieren.
+- Latex Git-Repo, mit zhprog relevantem Zeug.
+#!/usr/bin/env python
+
+
+Loesungsstrategien:
+divide and conquor
+- guessing game
+- bubble sort
+
+Zufallsexperimente:
+- Wie wahrscheinlich ist es, ein Fullhouse zu wuerfeln
+- was ist wahrscheinlicher: mind n 6er mit n*6 Wuefeln. 
+  Newton-Pepys-Problem
+
+26.10 Jupyterlab, Pep-8, Interpreter, Sprache, Tokens, Variabeln, int, str, print, Turtle
+      Aufgaben/Probleme zum losen:
+      Weise beschreibend  benannten Variabeln (was, nicht wie) nuetzliche Befehlssequezen zu
+
+      zeichen vline(s), hline(s), 8x8 Gitter
+      
+02.11 Booleans, and, or, not 
+      Floats (math.isclose() fuer ==)
+      Expressions
+      and und or Tricks sign(x) = (x > 0) - (x < 0)
+      Guessing Game mit mehrfachausfuheren der Zelle
+      Divide and Conquor
+
+      Turtle-Schneeflocke
+
+09.11 while loop mit break und continue (tricky)
+      for x in iterable:
+      if elif else
+
+      type, isinstance, casts
+
+      Turtle, use lambdas!
+      
+16.11 f-strings, slice_notation, mehr zu range, zip, enumerate, reversed
+      
+
+23.11 unpacking, *, 
+      Funktions
+      Module?
+
+30.11 Listen, Sortieren, Files
+07.12 Dicts, Mengen
+14.12 Dicts, Frequence Dicts
+
+04.01 Rep. viele Aufgaben besprechen
+11.01 Pruefung (vor Ort)
+18.01
+25.01
+01.02
+
+22.02 Abgabe Projektskizze
+01.03
+08.03
+15.03 Projektpraesentation
+22.03
+---------------------------------------
+Keine Cell-Magic erst spaeter!
+[*] neben Zelle, erst spaeter.
+
+
+
+
+
+Fix the workflow:
+- umlauts
+- taggginh
+- searchers?
+- scratchfiles and live updates?
+- share and response folders
+
+- how to pull and push answers ?
+  use files sutdiM -> conains real repo name, to allow for tab-completion
+
+
+More stuff in Draw_Curves/Draw_Curves: Automat, domainspezifische Sprache entwickeln.
+
+update scratch: work/scratch -> .src/notebooks/scratch
+
+init_share:
+  test if pushing repo works what is the config of the response repo inside share?
+
+---
+Was ist der Zweck von MiniPython? Explizit diesen Namen einfuehren?
+- Zeige, wie Syntax und Semantik praezise definiert werden kann.
+
+
+Write a tool that checks if Code is written entirely in MiniPython.
+
+Jupyterlab-Intro
+
+- weise deutlich darauf hin, dass Zellentyp oben in der Menuleiste des Haupfensters 
+  Angezeigt wird.
+  Wenn beim Ausfueheren von Code nichts passiert, ist 
+  die Zelle ev. keine COde Zelle. (Key-Shortcuts koennen Zelltyp aendern!)
+  ESC-m, ESC-y (Code) und ESC-r

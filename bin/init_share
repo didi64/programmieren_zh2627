@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+owner='dpro-prog2425zh'
+root="${HOME}/work"
+share_dir="${root}/share"
+
+token=$(cat "$root/.token_share")
+user=$(cat "$root/.user")
+name=(${user//./ })  # (...) declares an array
+
+fname=${name[0]}
+lname=${name[1]}
+initial=${lname:0:1}
+repo_share="${fname}${initial^}_share"
+repo_response="${fname}${initial^}_response"
+
+
+if [[ -d "$share_dir" ]]; then
+    echo "share folder already exists"
+    exit 1
+fi
+
+git -C "$root" clone "https://${owner}:${token}@github.com/${owner}/${repo_share}.git" share
+git -C ${share_dir} config --local user.email "${user}@edu.teko.ch"
+git -C ${share_dir} config --local user.name "${fname} ${lname}"
+
+git -C "${share_dir}" clone "https://${owner}:${token}@github.com/${owner}/${repo_response}.git" response

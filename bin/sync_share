@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+
+share_repo="${HOME}/work/share"
+response_repo="${HOME}/work/share/response"
+
+git -C "$share_repo" add -A
+git -C "$share_repo" commit . -m "$(date)" || true
+git -C "$share_repo" push -f
+
+if [[ $(git -C "${response_repo}" fetch --dry-run 2>&1 | wc -l) -eq 0 ]]; then
+    echo "no new files in response"
+    exit 0
+fi
+
+before=$(git -C "${response_repo}" rev-parse HEAD)
+git -C "${response_repo}" stash
+git -C "${response_repo}" pull
+git -C "${response_repo}" stash clear
+
+mapfile -t files < <(git  -C "${response_repo}" diff-tree --no-commit-id --name-only -r --diff-filter=ACMR $before HEAD)
+echo "the following files changed:"
+for file in ${files[@]}; do
+    echo $file
+done

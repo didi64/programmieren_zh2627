@@ -1,0 +1,127 @@
+#!/bin/bin/env bash
+
+set -euo pipefail
+
+ANSWER=""
+work="${HOME}/work"
+repo_url="$work/.src"
+nb_dir="${work}"
+contents="${repo_url}/contents.cfg"
+
+is_numeric='^[0-9]+$'
+is_number='^[1-9][0-9]*$'
+
+options=""
+HELP=$(cat <<EOF
+
+usage:
+======
+1a) update <Nummer der Lektion>
+    kopiert die Files der Lektion <Nummer der Lektion> nach  work/
+
+1b) update -y <Nummer der Lektion>
+    kopiert die Files der Lektion <Nummer der Lektion> nach  work/und ueberschreibt immer
+       
+
+2) update <file1> [<file2> ...]
+   Holt und kopiert, falls vorhanden, die Files oder Ordner <file1>, ... nach work/
+
+3) udpate -scratch
+   holt waehrend der Lektion erstellte Files
+
+Beispiele:
+==========
+studi@jlab:~/work$ update 1
+studi@jlab:~/work$ update -scratch
+
+EOF
+)
+
+if [[ $# -eq 0 ]]; then 
+    printf "$HELP"
+    exit 1
+fi
+
+# actually file or directory [[ $a == z* ]]
+process_file () {
+    echo "processing $1"
+
+    if [[ $1 != ./* ]]; then # not full path
+        item="./notebooks/$1"
+
+    if [[ -d $item ]]; then  # directory
+        if [[ "$ANSWER" == "" ]]; then
+                cp $item -ri "$nb_dir"
+        else
+            cp $item -ri "$nb_dir" &> /dev/null < <(yes $ANSWER) 
+        fi
+
+
+    elif [[ -f $PASSED ]]; then  # file
+       if [[ "$ANSWER" == "" ]]; then
+                cp $file -i "$nb_dir"
+        else
+            cp $file -i "$nb_dir" &> /dev/null < <(yes $ANSWER) 
+        fi
+    else
+        echo "could not handle $item!"
+        exit 1
+    fi
+}
+
+# parse the arguments: extract the answer
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -y|--yes)
+      ANSWER="yes"
+      set -- "${@:2}"
+      ;;
+    -s|--scratch)
+      set -- "${@:2}"
+      POSITIONAL_ARGS+=("990") # scratchfiles are lesson 990
+      ;;
+    -e|--extras)
+      set -- "${@:2}"
+      POSITIONAL_ARGS+=("999") # extras are lesson 999
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+
+git -C "$repo_url" fetch
+git -C "$repo_url" reset --hard origin/main
+
+for item in "$@"; do
+    if [[ $item =~ $is_number ]] && ((item < 50)); then  # process the files in contents.txt 
+        files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
+        for file in $files; do
+            lesson=$(printf "%02d" $item)  
+            process_file "L${lesson}/$file"
+        done
+    elif [[ $item =~ $is_number ]] && ((item >= 50)); then
+        files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
+        for file in $files; do
+            process_file "$file"
+        done
+    elif [[ "$item" != "." ]]; then
+        n=$(find "$repo_url" -name "$item" | wc -l)
+        if ((n == 1)); then
+            process_file $item
+        elif ((n == 0)); then
+            echo "$item not found!"
+        else 
+            echo "$item not unique! Add part of its path"
+        fi
+    fi
+done
