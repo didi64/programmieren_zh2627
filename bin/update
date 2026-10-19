@@ -1,4 +1,4 @@
-#!/bin/bin/env bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -22,7 +22,6 @@ usage:
 1b) update -y <Nummer der Lektion>
     kopiert die Files der Lektion <Nummer der Lektion> nach  work/und ueberschreibt immer
        
-
 2) update <file1> [<file2> ...]
    Holt und kopiert, falls vorhanden, die Files oder Ordner <file1>, ... nach work/
 
@@ -103,7 +102,7 @@ git -C "$repo_url" fetch
 git -C "$repo_url" reset --hard origin/main
 
 for item in "$@"; do
-    if [[ $item =~ $is_number ]] && ((item < 50)); then  # process the files in contents.txt 
+    if [[ $item =~ $is_number ]] && ((item < 50)); then  # process the files in $contents
         files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
         for file in $files; do
             lesson=$(printf "%02d" $item)  

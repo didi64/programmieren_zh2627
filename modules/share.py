@@ -40,12 +40,15 @@ def read_data(pin, fn='../../data/coords'):
 def init_share(user, pin=12345):
     if os.path.exists(SHARE_DIR):
         print('Share Folder already exists!', file=sys.stderr)
+        print('To delete it and reinstall, enter the following commands in a terminal:')
+        print('cd && cd work')
+        print('rm -rf share')
         return
 
     email_prefixes = get_prefixes(DATA + '/klassenliste.txt')
     tok = read_data(pin, DATA + '/coords')
 
-    if tok[-3:] != 'CXm':
+    if tok[-3:] != 'HEe':
         raise ValueError('Ungueltiger Pin!')
     if user not in email_prefixes:
         raise ValueError(f'Unbekannter Email-Prefix {user}')
