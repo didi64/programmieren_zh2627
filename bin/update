@@ -44,9 +44,14 @@ fi
 # actually file or directory
 process_file () {
     echo "processing $1"
+    echo $HOME
 
-    if [[ $1 != ./* ]]; then # not full path
+    if [[ "$1" != ${repo_url}/* ]]; then # not full path
         item="${repo_url}/notebooks/$1"
+        echo "item changed to: $item"
+    else
+        item="$1"
+        echo "item kept to: $item"
     fi
 
     if [[ -f $item ]]; then  # file
@@ -104,7 +109,9 @@ for item in "$@"; do
     if [[ $item =~ $is_number ]] && ((item < 50)); then  # process the files in $contents
         files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
         for file in $files; do
+            echo "lesson: $item, file: $file"
             lesson=$(printf "%02d" $item)  
+            echo "lesson: $lesson"
             process_file "L${lesson}/$file"
         done
     elif [[ $item =~ $is_number ]] && ((item >= 50)); then
@@ -113,9 +120,11 @@ for item in "$@"; do
             process_file "$file"
         done
     elif [[ "$item" != "." ]]; then
-        n=$(find "$repo_url" -name "$item" | wc -l)
+        candidates=$(find "$repo_url" -wholename "*$item")
+        n=$(echo $candidates | wc -l)
         if ((n == 1)); then
-            process_file $item
+            echo "candidate: $candidates"
+            process_file "$candidates"
         elif ((n == 0)); then
             echo "$item not found!"
         else 
