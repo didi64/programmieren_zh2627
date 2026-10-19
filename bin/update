@@ -49,7 +49,13 @@ process_file () {
         item="${repo_url}/notebooks/$1"
     fi
 
-    if [[ -d $item ]]; then  # directory
+    if [[ -f $item ]]; then  # file
+        if [[ "$ANSWER" == "" ]]; then
+                cp $item -i "$nb_dir"
+        else
+            cp $item -i "$nb_dir" &> /dev/null < <(yes $ANSWER) 
+        fi
+    elif [[ -d $item ]]; then  # directory
         if [[ "$ANSWER" == "" ]]; then
                 cp $item -ri "$nb_dir"
         else
