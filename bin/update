@@ -46,7 +46,7 @@ process_file () {
     echo "processing $1"
 
     if [[ $1 != ./* ]]; then # not full path
-        item="./notebooks/$1"
+        item="${repo_url}/notebooks/$1"
     fi
 
     if [[ -d $item ]]; then  # directory
