@@ -47,6 +47,7 @@ process_file () {
 
     if [[ $1 != ./* ]]; then # not full path
         item="./notebooks/$1"
+    fi
 
     if [[ -d $item ]]; then  # directory
         if [[ "$ANSWER" == "" ]]; then
@@ -54,7 +55,6 @@ process_file () {
         else
             cp $item -ri "$nb_dir" &> /dev/null < <(yes $ANSWER) 
         fi
-
 
     elif [[ -f $PASSED ]]; then  # file
        if [[ "$ANSWER" == "" ]]; then
