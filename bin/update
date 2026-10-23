@@ -44,14 +44,11 @@ fi
 # actually file or directory
 process_file () {
     echo "processing $1"
-    echo $HOME
 
     if [[ "$1" != ${repo_url}/* ]]; then # not full path
         item="${repo_url}/notebooks/$1"
-        echo "item changed to: $item"
     else
         item="$1"
-        echo "item kept to: $item"
     fi
 
     if [[ -f $item ]]; then  # file
@@ -123,7 +120,7 @@ for item in "$@"; do
         candidates=$(find "$repo_url" -wholename "*$item")
         n=$(echo $candidates | wc -l)
         if ((n == 1)); then
-            echo "candidate: $candidates"
+            # echo "candidate: $candidates"
             process_file "$candidates"
         elif ((n == 0)); then
             echo "$item not found!"

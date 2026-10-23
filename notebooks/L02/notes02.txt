@@ -1,0 +1,28 @@
+
+
+
+
+Tokens: so wie erzaehlt wohl wahr fuer fruehe Version von Python.
+        Situation komplizierter,
+        gibt auch sog. soft keywords, 
+        Woerter, die nur in einem bestimmenten Kontext als Keywords betrachtet werden.
+        Soft Keywords
+
+    # legal und funktioniert!
+    match status:
+        case 400:
+            case = "Bad request"
+        case 404:
+            case = "Not found"
+        case 418:
+            case = "I'm a teapot"
+        case _:
+            case = "Something's wrong with the internet"
+    
+    case
+---------------------
+
+
+
+
+

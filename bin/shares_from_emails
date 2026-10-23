@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mapfile -t emails <../data/emails.txt
+
+for email in "${emails[@]}"; do
+    if [[ "$email" =~ ^[[:space:]]*\# ]] || [[ -z "${email//[[:space:]]/}" ]]; then
+        # echo "skipping $email"
+        continue
+    fi
+    echo "processing $email"
+    # 1. Strip everything after and including the "@"
+    local_part="${email%@*}"
+    
+    # 2. Extract the firstname (everything before the first ".")
+    fname="${local_part%%.*}"
+    
+    # 3. Extract the lastname (everything after the first ".")
+    lname="${local_part#*.}"
+    
+    initial=${lname:0:1}
+    repo_name="$fname${initial^}"
+    echo "Reponame: $repo_name"
+    # init_share_response "$repo_name"
+done
+
+# while IFS= read -r email || [[ -n "$email" ]]; do
+#    
+#    # Skip completely empty lines (optional)
+#    [[ -z "${line//[[:space:]]/}" ]] && continue
+# done < "../data/emails.txt"

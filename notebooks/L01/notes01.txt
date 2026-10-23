@@ -1,7 +1,51 @@
-- Slides aktuallisieren.
-- Latex Git-Repo, mit zhprog relevantem Zeug.
-#!/usr/bin/env python
+Test container test sharefolder
+test scripts t generate share and response repos
+pushing: what about email and username? in git config?
 
+
+add
+- Steuerzeichen verwende in uebung, aber noch nicht offiziell!
+- print (auch schon in Ausdruecken), funktion, wie max, min, abs, round, len
+
+Needed: Drills!
+Uebungen zum Abgeben?       
+     
+min max stuff is too hard!
+
+
+ev. evenso inoffiziell
+True = 1 falls im sinne eines Wahrheitswertes.
+Sagt hautsaaechlichetwas ueber die Verwendung aus.
+Verhalten genau wie 1
+Analog False = 0.
+
+==, !=, <, >, <=, >= mainy focus on ==.
+
+win_cond
+
+- tiktaktoe string -> tiktaktoe board/tabelle
+- 
+
+Establish pushing from live lesson:
+1. keep a folder scratch
+2. move files and folder into the scrach folder
+3. $ push
+   copies cp -r scratch/. .src/notebooks/scratch
+   git add and commit and push
+
+4. students do update -s or update scratch
+5. after the lesson: 
+   clean u scratch
+   maybe add as subfolder to the next lesson.
+   
+------------------
+configure access from windows laptop.
+use tokens.
+
+needs:
+push and pull from dro-prog..
+push to didi64
+-----------------------
 
 Loesungsstrategien:
 divide and conquor
@@ -59,35 +103,14 @@ Zufallsexperimente:
 15.03 Projektpraesentation
 22.03
 ---------------------------------------
-Keine Cell-Magic erst spaeter!
-[*] neben Zelle, erst spaeter.
 
 
-
-
-
-Fix the workflow:
-- umlauts
-- taggginh
-- searchers?
-- scratchfiles and live updates?
-- share and response folders
-
-- how to pull and push answers ?
-  use files sutdiM -> conains real repo name, to allow for tab-completion
 
 
 More stuff in Draw_Curves/Draw_Curves: Automat, domainspezifische Sprache entwickeln.
 
-update scratch: work/scratch -> .src/notebooks/scratch
-
-init_share:
-  test if pushing repo works what is the config of the response repo inside share?
-
----
 Was ist der Zweck von MiniPython? Explizit diesen Namen einfuehren?
 - Zeige, wie Syntax und Semantik praezise definiert werden kann.
-
 
 Write a tool that checks if Code is written entirely in MiniPython.
 
@@ -96,5 +119,76 @@ Jupyterlab-Intro
 - weise deutlich darauf hin, dass Zellentyp oben in der Menuleiste des Haupfensters 
   Angezeigt wird.
   Wenn beim Ausfueheren von Code nichts passiert, ist 
-  die Zelle ev. keine COde Zelle. (Key-Shortcuts koennen Zelltyp aendern!)
+  die Zelle ev. keine Code Zelle. (Key-Shortcuts koennen Zelltyp aendern!)
   ESC-m, ESC-y (Code) und ESC-r
+
+
+
+--
+Teil I: Slides plus Dockerinstallation + Container + update 1 + web resourcen 45'
+
+Teil II: What is this all about
+         - Unterhaltung mit dem Python-Interpreter
+         - Jupyterlab-Intro
+         - Trubleshooting
+         Ihr muesst in Jupyterlab arbeiten koennen:
+         Basics: kommentieren und unkommentieren!
+                 Files mit mir teilen!
+
+        Minimale Markdown Kenntnisse.
+        Aufgaben 
+          - Markdow
+          - Arbeiten_in_JLab
+
+
+60'
+Pause 20:00 - 20:15
+
+Sharefolder:
+
+Was versteht der Pythoninterpreter: 
+
+Was versteht der Python-Interpreter
+- 2, 4 
+2 + 2
+2 * 10
+2**10
+2**100
+
+tippe 'Test'
+
+tippe 
+x  # NameError, undefinierte Varible,
+x = 2 
+
+print  # Offenbar ist print ein schon definierter Name (Variable)
+       # insbes. eine Funktion
+
+print('test')
+
+None
+print(None)
+
+print = 2
+print
+
+
+alpha = 90
+alpha
+
+lambda = 0  # lambda ist ein Keyword!
+====================
+
+Tokens.ipynb
+
+Tokens im Detail Betrachten.
+
+- Variabeln und Zuweisungen (vorerst nur Zahlen)
+- Integers (ganze Zahlen),
+  Integeroperationen
+  finde weg zu Wahrheitswerten True und False?
+- Strings
+
+Aufgaben:
+ - Aufgaben: Loesen und abgeben!?
+
