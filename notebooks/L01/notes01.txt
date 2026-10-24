@@ -1,3 +1,5 @@
+PATH="${JLAB_DIR}/.src/bin:${PATH}"
+
 
 In a bash script, I want to search for a path in a 
 directory. path is e.g. just `foo` or `bar/foo`, where `foo` is a file or a directory.
