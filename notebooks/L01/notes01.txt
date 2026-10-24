@@ -1,4 +1,11 @@
 PATH="${JLAB_DIR}/.src/bin:${PATH}"
+git remote set-url origin https://<YOUR_TOKEN>@github.com/<USERNAME>/<REPOSITORY>.git
+
+repo_local="${work}/.src"
+repo="programmieren_zh2627"
+token=$(cat ${work}/.token)
+repo_remote="https://${token}@github.com/didi64/${repo}.git"
+git -C $repo_local push ${repo_remote}
 
 
 In a bash script, I want to search for a path in a 
