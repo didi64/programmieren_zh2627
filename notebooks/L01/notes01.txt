@@ -1,31 +1,42 @@
+
+In a bash script, I want to search for a path in a 
+directory. path is e.g. just `foo` or `bar/foo`, where `foo` is a file or a directory.
+
+If there is only one file or directory, I do something with it, otherwise I
+ask for a more specific path. 
+The script should work also if the files and dirnames contain spaces or newline.
+
+
+```bash
+mapfile -t -d '' candidates < <(find "$repo_url" -wholename "*$path" -print0)
+n=${#candidates[@]}
+if ((n == 1)); then
+    process_path "${candidates[0]}"
+elif ((n == 0)); then
+    echo "$path not found!"
+else 
+    echo "$path not unique! Be more specific!"
+fi
+```
+
 Test container test sharefolder
 test scripts t generate share and response repos
 pushing: what about email and username? in git config?
+ore newlines in Markdone
 
+print(chr(160)) and coopy past it on last code line.
+
+<div style="clear: both;"></div>
+
+---
 
 add
 - Steuerzeichen verwende in uebung, aber noch nicht offiziell!
 - print (auch schon in Ausdruecken), funktion, wie max, min, abs, round, len
 
 Needed: Drills!
-Uebungen zum Abgeben?       
-     
-min max stuff is too hard!
 
-
-ev. evenso inoffiziell
-True = 1 falls im sinne eines Wahrheitswertes.
-Sagt hautsaaechlichetwas ueber die Verwendung aus.
-Verhalten genau wie 1
-Analog False = 0.
-
-==, !=, <, >, <=, >= mainy focus on ==.
-
-win_cond
-
-- tiktaktoe string -> tiktaktoe board/tabelle
-- 
-
+   
 Establish pushing from live lesson:
 1. keep a folder scratch
 2. move files and folder into the scrach folder
@@ -109,10 +120,6 @@ Zufallsexperimente:
 
 More stuff in Draw_Curves/Draw_Curves: Automat, domainspezifische Sprache entwickeln.
 
-Was ist der Zweck von MiniPython? Explizit diesen Namen einfuehren?
-- Zeige, wie Syntax und Semantik praezise definiert werden kann.
-
-Write a tool that checks if Code is written entirely in MiniPython.
 
 Jupyterlab-Intro
 
@@ -125,7 +132,9 @@ Jupyterlab-Intro
 
 
 --
-Teil I: Slides plus Dockerinstallation + Container + update 1 + web resourcen 45'
+Teil I: Vorstellung 15h +
+        Slides plus Dockerinstallation + Container + update 1 + web resourcen 
+        + share_foder + Pause und Troubleshooting 1:15
 
 Teil II: What is this all about
          - Unterhaltung mit dem Python-Interpreter
@@ -141,10 +150,9 @@ Teil II: What is this all about
           - Arbeiten_in_JLab
 
 
-60'
-Pause 20:00 - 20:15
 
-Sharefolder:
+Pause 20:15 - 20:30
+
 
 Was versteht der Pythoninterpreter: 
 
@@ -189,6 +197,23 @@ Tokens im Detail Betrachten.
   finde weg zu Wahrheitswerten True und False?
 - Strings
 
-Aufgaben:
- - Aufgaben: Loesen und abgeben!?
 
+Drills?!
+ev. doch noch TikTak Aufgabe, 
+gewinnpruegfung.
+
+
+----------------------------------------------------------
+- Aufgaben: Loesen und abgeben!? Zu viel Aufwand!
+  Regel:
+Ich will, dass die Studenten mit der Jupyterlab arbeiten
+und darin Code schreiben, Code ausfuheren testen und debuggen.
+Es ist ok, AI Hilfe in Anspruch zu nehmen, aber
+Eigenleistung muss sichtbar sein.
+
+Gebe Musterloesung, beantworte individualle fragen.
+dazu.
+
+Gebe nur Feedback, ob akzeptiert oder nicht.
+     
+     

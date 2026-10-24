@@ -22,8 +22,9 @@ if [[ -d "$share_dir" ]]; then
     exit 1
 fi
 
-git -C "$root" clone "https://${owner}:${token}@github.com/${owner}/${repo_share}.git" share
-git -C ${share_dir} config --local user.email "${user}@edu.teko.ch"
-git -C ${share_dir} config --local user.name "${fname} ${lname}"
 
+git -C "$root" clone "https://${owner}:${token}@github.com/${owner}/${repo_share}.git" share
 git -C "${share_dir}" clone "https://${owner}:${token}@github.com/${owner}/${repo_response}.git" response
+
+git config --global user.email "${user}@edu.teko.ch"
+git config --gloabal user.name "${fname} ${lname}"

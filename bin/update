@@ -41,8 +41,7 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
-# actually file or directory
-process_file () {
+process_path () {
     echo "processing $1"
 
     if [[ "$1" != ${repo_url}/* ]]; then # not full path
@@ -79,7 +78,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     -s|--scratch)
       set -- "${@:2}"
-      POSITIONAL_ARGS+=("990") # scratchfiles are lesson 990
+      POSITIONAL_ARGS+=("scratch") # scratchfiles
       ;;
     -e|--extras)
       set -- "${@:2}"
@@ -109,23 +108,27 @@ for item in "$@"; do
             echo "lesson: $item, file: $file"
             lesson=$(printf "%02d" $item)  
             echo "lesson: $lesson"
-            process_file "L${lesson}/$file"
+            process_path "L${lesson}/$file"
         done
     elif [[ $item =~ $is_number ]] && ((item >= 50)); then
         files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
         for file in $files; do
-            process_file "$file"
+            process_path "$file"
+        done
+    elif [[ "$item" == "scratch" ]]; then
+        for file in "$repo_url/notebooks/scratch/*"; do
+            process_path "$file"
         done
     elif [[ "$item" != "." ]]; then
-        candidates=$(find "$repo_url" -wholename "*$item")
-        n=$(echo $candidates | wc -l)
+        mapfile -t -d '' candidates < <(find "$repo_url" -path "*$item" -print0)
+        n=${#candidates[@]}
         if ((n == 1)); then
             # echo "candidate: $candidates"
-            process_file "$candidates"
+            process_path "${candidates[0]}"
         elif ((n == 0)); then
             echo "$item not found!"
         else 
-            echo "$item not unique! Add part of its path"
+            echo "$item not unique! Be more specific"
         fi
     fi
 done
