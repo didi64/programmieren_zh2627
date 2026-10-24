@@ -43,6 +43,7 @@ fi
 
 process_path () {
     echo "processing $1"
+    local item=''
 
     if [[ "$1" != ${repo_url}/* ]]; then # not full path
         item="${repo_url}/notebooks/$1"
