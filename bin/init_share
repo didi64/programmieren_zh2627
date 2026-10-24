@@ -27,4 +27,4 @@ git -C "$root" clone "https://${owner}:${token}@github.com/${owner}/${repo_share
 git -C "${share_dir}" clone "https://${owner}:${token}@github.com/${owner}/${repo_response}.git" response
 
 git config --global user.email "${user}@edu.teko.ch"
-git config --gloabal user.name "${fname} ${lname}"
+git config --global user.name "${fname} ${lname}"
