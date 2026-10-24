@@ -117,7 +117,7 @@ for item in "$@"; do
             process_path "$file"
         done
     elif [[ "$item" == "scratch" ]]; then
-        mapfile -t -d '' candidates < <(find "$repo_url" -wholename "$repo_url/notebooks/scratch/*"; -print0)
+        mapfile -t -d '' candidates < <(find "$repo_url" -path "$repo_url/notebooks/scratch/*" -print0)
         n=${#candidates[@]}
         for file in "${candidates[@]}"; do
         	echo "$file"
