@@ -9,7 +9,7 @@ repo=".src"
 push_dir=".src/notebooks/scratch"
 pushd "/home/studi/work"
 
-cp -r scratch/. "$push_dir"
+# cp -r scratch/. "$push_dir"
 
 echo "pushing ${push_dir}"
 git -C "$repo}" add -A
