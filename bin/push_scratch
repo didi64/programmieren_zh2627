@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euox pipefail
 
 token=$(cat /home/studi/work/.token_didi64)
 REPO_URL="https://${token}@github.com/didi64/programmieren_zh2627.git"
