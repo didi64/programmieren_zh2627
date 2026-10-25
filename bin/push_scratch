@@ -6,12 +6,12 @@ token=$(cat /home/studi/work/.token_didi64)
 REPO_URL="https://${token}@github.com/didi64/programmieren_zh2627.git"
 
 repo="/home/studi/work/.src"
-push_dir=".src/notebooks/scratch"
+push_dir="notebooks/scratch"
 
-rm -rf "${push_dir}/.*"
-rm -rf "${push_dir}/__pycache__"
+rm -rf "${repo}/${pushdir}/.*"
+rm -rf "${repo}/${pushdir}/__pycache__"
 
-echo "pushing ${push_dir}"
+echo "pushing scratch"
 git -C "${repo}" add -A
 git -C "${repo}" commit -m "$(date)" || true
 git -C "${repo}" push "${REPO_URL}"
