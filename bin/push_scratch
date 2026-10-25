@@ -12,7 +12,7 @@ rm -rf "${repo}/${push_dir}"/.*
 rm -rf "${repo}/${push_dir}/__pycache__"
 
 echo "pushing scratch"
-git -C "${repo}" add -A
+git -C "${repo}" add -- "${push_dir}"
 git -C "${repo}" commit -m "$(date)" || true
 git -C "${repo}" push "${REPO_URL}"
 
