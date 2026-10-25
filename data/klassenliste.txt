@@ -1,1 +1,59 @@
-Dieter Probst dieter.probst@edu.teko.ch
+TSY
+1  Afuzi Alban
+2  Bieri Joshua
+3  Coivo Cabral Filho David
+4  dos Santos Oliveira Hélio
+5  Gouda Til
+6  Gutierrez Russel
+7  Maloku Arlind
+8  Muralitharan Luxshan
+9  Phari Loyang Kunden     
+10 Rezaee Ali
+11 Stankovic Kristijan
+12 Tonet Fabio
+13 Veljkovic Motahareh
+
+Alban
+Joshua
+David
+Helio
+Til
+Russel
+Arlind
+Luxshan
+Kunden
+Fabio
+Motahareh
+
+TGA 
+
+1  Callà Simone
+2  do Vale Ferreira David
+3  Kosic Marko
+4  Stupar Stefan
+5  Suter Nicolas
+6  Wirth Bryan
+
+Simone
+Marko
+Stefan
+Nicolas
+Bryan
+
+TEL 
+1 Bigler Marco Xeno
+2 Conrad Sebastian
+3 Kläy Cedric
+4 Nicolay Jon (Kl)
+5 Schärli Philipp
+6 Trütsch Kendy
+7 Walker Benjamin
+
+
+Marco
+Sebastian
+Cedric
+Jon
+Philipp
+Kendy
+Benjamin

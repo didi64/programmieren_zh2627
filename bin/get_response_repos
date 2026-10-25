@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+REPO_ROOT="/home/studi/work/studis"
+pushd "$REPO_ROOT"
+
+token=$(cat .token)
+REPO_URL="https://${token}@github.com/dpro-prog2425zh"
+
+
+mapfile -t  repos < repo_names.txt
+for repo_prefix in "${repos[@]}"; do
+    repo="${repo_prefix}_response"
+	if [ -d "${REPO_ROOT}/${repo}" ]; then
+		echo "${repo} exists, skipping ..."
+		continue
+	fi
+	
+	echo "git -C $REPO_ROOT clone ${REPO_URL}/${repo}.git"
+	git -C "$REPO_ROOT" clone "${REPO_URL}/${repo}.git"
+	
+done
+popd

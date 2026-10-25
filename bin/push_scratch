@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+token=$(cat /home/studi/work/.token_didi64)
+REPO_URL="https://${token}@github.com/didi64/programmieren_zh2627.git"
+
+repo=".src"
+push_dir=".src/notebooks/scratch"
+pushd "/home/studi/work"
+
+cp -r scratch/. "$push_dir"
+
+echo "pushing ${push_dir}"
+git -C "$repo}" add -A
+git -C "${repo}" commit -m "$(date)" || true
+git -C "${repo}" push "${REPO_URL}"
+
+popd

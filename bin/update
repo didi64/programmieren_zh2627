@@ -106,9 +106,9 @@ for item in "$@"; do
     if [[ $item =~ $is_number ]] && ((item < 50)); then  # process the files in $contents
         files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
         for file in $files; do
-            echo "lesson: $item, file: $file"
+            # echo "lesson: $item, file: $file"
             lesson=$(printf "%02d" $item)  
-            echo "lesson: $lesson"
+            # echo "lesson: $lesson"
             process_path "L${lesson}/$file"
         done
     elif [[ $item =~ $is_number ]] && ((item >= 50)); then

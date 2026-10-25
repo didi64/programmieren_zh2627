@@ -1,38 +1,28 @@
 PATH="${JLAB_DIR}/.src/bin:${PATH}"
-git remote set-url origin https://<YOUR_TOKEN>@github.com/<USERNAME>/<REPOSITORY>.git
 
-repo_local="${work}/.src"
-repo="programmieren_zh2627"
-token=$(cat ${work}/.token)
+- review slides and put on teams
+- add a push script to push scratch
+- needs also a clone and a pull script for share repos!
+mapfile -t
+git clone if it does not exists otherwise just pull
+
+
+
+
+transort  .src/bin
+then mv to /usr/local/bin
+cp didi_64_teamix to work/.token
+
+
 repo_remote="https://${token}@github.com/didi64/${repo}.git"
 git -C $repo_local push ${repo_remote}
 
-
-In a bash script, I want to search for a path in a 
-directory. path is e.g. just `foo` or `bar/foo`, where `foo` is a file or a directory.
-
-If there is only one file or directory, I do something with it, otherwise I
-ask for a more specific path. 
-The script should work also if the files and dirnames contain spaces or newline.
+docker login
+docker tag dieterprobst/jlab:3.2 dieterprobst/jlab:3.2
+docker push dieterprobst/jlab:3.2
 
 
-```bash
-mapfile -t -d '' candidates < <(find "$repo_url" -wholename "*$path" -print0)
-n=${#candidates[@]}
-if ((n == 1)); then
-    process_path "${candidates[0]}"
-elif ((n == 0)); then
-    echo "$path not found!"
-else 
-    echo "$path not unique! Be more specific!"
-fi
-```
-
-Test container test sharefolder
-test scripts t generate share and response repos
-pushing: what about email and username? in git config?
-ore newlines in Markdone
-
+Newlines in Markdone in ```python
 print(chr(160)) and coopy past it on last code line.
 
 <div style="clear: both;"></div>
@@ -46,8 +36,11 @@ add
 Needed: Drills!
 
    
-Establish pushing from live lesson:
-1. keep a folder scratch
+Pushing from live lesson:
+1. keep a folder scratch ln -s work/.src/notebooks/scratch
+2. mv notebooks to scratch, add commit and push
+3. remove later 
+
 2. move files and folder into the scrach folder
 3. $ push
    copies cp -r scratch/. .src/notebooks/scratch
@@ -125,11 +118,6 @@ Zufallsexperimente:
 ---------------------------------------
 
 
-
-
-More stuff in Draw_Curves/Draw_Curves: Automat, domainspezifische Sprache entwickeln.
-
-
 Jupyterlab-Intro
 
 - weise deutlich darauf hin, dass Zellentyp oben in der Menuleiste des Haupfensters 
@@ -162,6 +150,10 @@ Teil II: What is this all about
 
 Pause 20:15 - 20:30
 
+Kommunikation mit dem Interpreter:
+Coden ist ein Interaktiver Prozess.
+Der Code muss staendige getestet werden.
+Ungetesteter Code funktioniert in der Regel nicht wie gewuenscht!
 
 Was versteht der Pythoninterpreter: 
 
