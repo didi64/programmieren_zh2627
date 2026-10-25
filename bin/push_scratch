@@ -8,7 +8,7 @@ REPO_URL="https://${token}@github.com/didi64/programmieren_zh2627.git"
 repo="/home/studi/work/.src"
 push_dir="notebooks/scratch"
 
-rm -rf "${repo}/${push_dir}/.*"
+rm -rf "${repo}/${push_dir}"/.*
 rm -rf "${repo}/${push_dir}/__pycache__"
 
 echo "pushing scratch"
