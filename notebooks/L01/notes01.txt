@@ -116,57 +116,64 @@ Zufallsexperimente:
 15.03 Projektpraesentation
 22.03
 ---------------------------------------
+Vorstellung 15h +
+Slides plus Dockerinstallation + Container 30'
 
+Pause 10'
 
-Jupyterlab-Intro
-
+Der Befehl update
+Share_Folder
+Web Ressourcen 20'
+       
+Jupyterlab-Intro 40'
+- Lesen und alles ausprobieren! Was es bei euch nicht funktioniert, versuche das Problem mit KI
+  zu loesen!
 - weise deutlich darauf hin, dass Zellentyp oben in der Menuleiste des Haupfensters 
   Angezeigt wird.
   Wenn beim Ausfueheren von Code nichts passiert, ist 
   die Zelle ev. keine Code Zelle. (Key-Shortcuts koennen Zelltyp aendern!)
   ESC-m, ESC-y (Code) und ESC-r
 
+- class A: Kommentiere __repr__aus
+- Umbennenen, gefaehrlich! geht auch auf sichere weise.
+
+Troubleshooting: Im Wesentlichen Kernel Restart (kurz)
+Unterhaltung mit dem Python Interpreter (wozu Jupyterlab).
 
 
---
-Teil I: Vorstellung 15h +
-        Slides plus Dockerinstallation + Container + update 1 + web resourcen 
-        + share_foder + Pause und Troubleshooting 1:15
-
-Teil II: What is this all about
-         - Unterhaltung mit dem Python-Interpreter
-         - Jupyterlab-Intro
-         - Trubleshooting
-         Ihr muesst in Jupyterlab arbeiten koennen:
-         Basics: kommentieren und unkommentieren!
-                 Files mit mir teilen!
-
-        Minimale Markdown Kenntnisse.
-        Aufgaben 
-          - Markdow
-          - Arbeiten_in_JLab
+Minimale Markdown Kenntnisse. (or skip?)
+Aufgaben 
+  - Markdow 15'
 
 
 
 Pause 20:15 - 20:30
 
-Kommunikation mit dem Interpreter:
-Coden ist ein Interaktiver Prozess.
+Nun noch kurz zu Python!
+
+Coden ist ein Interaktiver Prozess, eine Kommunikation mit dem Interpreter.
 Der Code muss staendige getestet werden.
 Ungetesteter Code funktioniert in der Regel nicht wie gewuenscht!
 
 Was versteht der Pythoninterpreter: 
 
 Was versteht der Python-Interpreter
+Heute: Zahlen, Strings (Zeichenketten), Variabeln, am Rand, Funktionen. 
+
+Zahlen werden verstanden:
 - 2, 4 
 2 + 2
 2 * 10
 2**10
 2**100
 
+Zeichenketten in Anfuehrungszeichen werden verstanden.
 tippe 'Test'
 
 tippe 
+
+(Variabel) namen (zeichenkette ohen anfuehrungszeichen?)
+
 x  # NameError, undefinierte Varible,
 x = 2 
 
@@ -175,7 +182,8 @@ print  # Offenbar ist print ein schon definierter Name (Variable)
 
 print('test')
 
-None
+None # nichts wird ausgegeben
+
 print(None)
 
 print = 2
@@ -185,36 +193,35 @@ print
 alpha = 90
 alpha
 
-lambda = 0  # lambda ist ein Keyword!
+lambda = 0  # lambda ist ein Keyword! Inherente Bedeutung fure Interpreter.
+            # 
+
 ====================
 
-Tokens.ipynb
+Tokens.ipynb 10'
 
-Tokens im Detail Betrachten.
+Identifier (Variabelnamen) denkt con print nicht als variable, sonders als Funktion.
+Gebrauch macht den Unterschied.
 
-- Variabeln und Zuweisungen (vorerst nur Zahlen)
-- Integers (ganze Zahlen),
-  Integeroperationen
-  finde weg zu Wahrheitswerten True und False?
-- Strings
+; Semikolon (do not use)
+kann damit auch anweisungen trennen, und mehrere Anweisungen auf eine Zeile schreiben.
+
+Erste_Schritte: Integer Strings, Variabeln, Funktionen 15'
+   
+Erste Programme:
+- Fakultaet 1: 0-mal ausfueher
+        2: 1-mal ausfuehren -> n-1
+- Summe 1..n: 1 0-0mal ausfuehren
+            1 + 2 1-mal ausfuehren
+- Fibo: pro AUsfuehrung gibt es ein Folgeglied
+- Wort umdrehen: pro Ausfuherung wird 
+                 ein Zeichen bearbeitet, len(n)-Mal ausfuehren
+
+  look inside:
+  gib auch noch i, und character aus
+  
 
 
-Drills?!
-ev. doch noch TikTak Aufgabe, 
-gewinnpruegfung.
-
-
-----------------------------------------------------------
-- Aufgaben: Loesen und abgeben!? Zu viel Aufwand!
-  Regel:
-Ich will, dass die Studenten mit der Jupyterlab arbeiten
-und darin Code schreiben, Code ausfuheren testen und debuggen.
-Es ist ok, AI Hilfe in Anspruch zu nehmen, aber
-Eigenleistung muss sichtbar sein.
-
-Gebe Musterloesung, beantworte individualle fragen.
-dazu.
-
-Gebe nur Feedback, ob akzeptiert oder nicht.
+Aufgaben
      
      
