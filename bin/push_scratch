@@ -8,6 +8,9 @@ REPO_URL="https://${token}@github.com/didi64/programmieren_zh2627.git"
 repo="/home/studi/work/.src"
 push_dir=".src/notebooks/scratch"
 
+rm -rf "${push_dir}/.*"
+rm -rf "${push_dir}/__pycache__"
+
 echo "pushing ${push_dir}"
 git -C "${repo}" add -A
 git -C "${repo}" commit -m "$(date)" || true
