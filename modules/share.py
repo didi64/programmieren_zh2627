@@ -14,7 +14,6 @@ def get_prefixes(fn):
     prefixes = []
     for line in lines:
         email = line.strip()
-        print(email)
         prefix = email[:email.index('@')]
         prefixes.append(prefix)
     return prefixes
@@ -46,7 +45,7 @@ def init_share(user, pin=12345):
     email_prefixes = get_prefixes(DATA + '/emails.txt')
     tok = read_data(pin, DATA + '/coords')
 
-    if tok[-3:] != 'CXm':
+    if tok[-3:] != 'HEe':
         raise ValueError('Ungueltiger Pin!')
     if user not in email_prefixes:
         raise ValueError(f'Unbekannter Email-Prefix {user}')
