@@ -9,7 +9,7 @@ repo="/home/studi/work/.src"
 push_dir=".src/notebooks/scratch"
 
 echo "pushing ${push_dir}"
-git -C "$repo}" add -A
+git -C "${repo}" add -A
 git -C "${repo}" commit -m "$(date)" || true
 git -C "${repo}" push "${REPO_URL}"
 
