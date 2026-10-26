@@ -200,20 +200,31 @@ lambda = 0  # lambda ist ein Keyword! Inherente Bedeutung fure Interpreter.
 
 Tokens.ipynb 10'
 
+Idee. Immer alles Testen, was gerade erklaert wird.
+Bei Unklarheit, ausprobieren, was passiert!
+
 Identifier (Variabelnamen) denkt con print nicht als variable, sonders als Funktion.
 Gebrauch macht den Unterschied.
 
 ; Semikolon (do not use)
 kann damit auch anweisungen trennen, und mehrere Anweisungen auf eine Zeile schreiben.
 
+keyword.softkwlist
+
+
 Erste_Schritte: Integer Strings, Variabeln, Funktionen 15'
-   
+
+
 Erste Programme:
+Ueberspringe Cell-Magic beim ersten Lesen.
+
 - Fakultaet 1: 0-mal ausfueher
         2: 1-mal ausfuehren -> n-1
 - Summe 1..n: 1 0-0mal ausfuehren
             1 + 2 1-mal ausfuehren
-- Fibo: pro AUsfuehrung gibt es ein Folgeglied
+
+  sum_ = a + b  # sum wollen wir nicht als Variabelnamen verwenden!
+- Fibo: pro Ausfuehrung gibt es ein Folgeglied
 - Wort umdrehen: pro Ausfuherung wird 
                  ein Zeichen bearbeitet, len(n)-Mal ausfuehren
 
@@ -223,5 +234,105 @@ Erste Programme:
 
 
 Aufgaben
-     
-     
+6)
+r = 500 % 137
+x = 137-r
+x, (500 + x) % 137
+
+7)
+email = 'max.muster@example.com'
+vorname = email[:3]
+nachname = email[4:10]
+vorname, nachname
+
+vorname_capitalized = 'M' + vorname[1:]
+nachname_capitalized = 'M' + nachname[1:]
+vorname_capitalized, nachname_capitalized
+
+8)
+
+s = '.OX.X.O.X'
+line_1 = s[:3]
+line_2 = s[3:6]
+line_3 = s[6:]
+
+tiktak = line_1 + '\n' + line_2 + '\n' + line_3 + '\n'
+print(tiktak)
+
+9)
+# a)
+s = '.OX.X.O.X'
+i = 5
+s_new = s[:i] + 'X' + s[i+1:]
+s_new
+
+# b)
+s = s_new
+line_1 = s[:3]
+line_2 = s[3:6]
+line_3 = s[6:]
+
+tiktak = line_1 + '\n' + line_2 + '\n' + line_3 + '\n'
+print(tiktak)
+
+10)
+SHARP = '#'
+SPACE = ' '
+NEWLINE = '\n'
+
+width = 50
+text = 'Text inside box.'
+
+n = len(text)
+n_spaces = (width - 2 - len(text)) // 2
+
+top_bottom = width * SHARP
+extra_line = SHARP + (width - 2) * SPACE + SHARP
+text_line = SHARP + n_spaces * SPACE + text + n_spaces * SPACE + SHARP
+paragraph = (top_bottom + NEWLINE + extra_line + NEWLINE
+             + text_line + NEWLINE + extra_line + NEWLINE + top_bottom)
+
+print(paragraph)
+11)
+from magic import run_cell
+
+n = 5
+total = 0
+
+%%run_cell n
+total = total + n**3
+n = n - 1
+
+total
+
+12)
+start = 20
+step = 6
+end = 45
+
+sep = ','
+numbers = ''
+n = 1 + (end - start - 1) // step
+
+%%run_cell n
+numbers = numbers + str(start) + sep
+start = start + step
+
+
+numbers[:-1]
+
+13)
+start_ = 500
+end = 2000
+step = 137
+
+start = start_ + (start_ % step)
+sep = ','
+numbers = ''
+n = 1 + (end - start - 1) // step
+
+%%run_cell n
+numbers = numbers + str(start) + sep
+start = start + step
+
+numbers[:-1]
