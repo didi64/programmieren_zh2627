@@ -79,7 +79,7 @@ def tagger(project_root):
              adds the tags from project_root/tags.txt to the notebooks
     '''
     tag_dict = get_taginfo(project_root, comment_out=True)
-    
+
     for nb_path in file_iter(project_root):
         nb = os.path.basename(nb_path)
         if nb not in tag_dict:
