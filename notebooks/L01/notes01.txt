@@ -6,6 +6,39 @@ PATH="${JLAB_DIR}/.src/bin:${PATH}"
 mapfile -t
 git clone if it does not exists otherwise just pull
 
+Lieber Alban,
+
+es waere gut, wenn du bis zur naechsten Lektion folgendes tun koenntest:
+1. Doker Desktop installieren koenntest,
+2. Dockercontainer mit Jupyterlab herunterladen in in Betrieb nehmen.
+
+Frage ev. deine Klassenkameraden um Hilfe.
+
+
+
+### Doker Desktop installieren
+
+1. Systemvoraussetzungen prüfen:  
+	* Stelle sicher, dass die Hardware-Virtualisierung im BIOS deines Mainboards aktiviert ist.
+	* Öffne die PowerShell oder Eingabeaufforderung als Administrator und installiere bzw. aktiviere WSL 2 mit folgendem Befehl in der Powershell
+    * > wsl --install
+
+	* Starte anschließend deinen Computer neu, falls danach gefragt wird. 
+2. Installer herunterladen:  
+	* Lade die Installationsdatei von der offiziellen Docker Get Started Website oder direkt die Windows-Version von Docker Desktop für Windows (auch im Microsoft Store erhältlich) herunter.
+3. Installation ausführen:  
+	* Starte die heruntergeladene Datei Docker Desktop Installer.exe mit Administratorrechten (Rechtsklick -> Als Administrator ausführen).
+	* Achte während des Setup-Assistenten darauf, dass die Option „Use WSL 2 instead of Hyper-V“ (WSL 2 anstelle von Hyper-V verwenden) aktiviert ist.
+	* Schließe die Installation ab und starte den Computer neu, falls der Installer dies verlangt. 
+4. Docker Desktop starten und einrichten:  
+	* Starte Docker Desktop über das Startmenü.
+	* Akzepiere die Nutzungsbedingungen (die Nutzung ist für Privatanwender, Bildungseinrichtungen und kleine Unternehmen mit weniger als 250 Mitarbeitern kostenlos).
+5. Installation überprüfen:  
+	* Öffne eine Eingabeaufforderung (CMD) oder PowerShell und teste die Funktionsfähigkeit mit folgendem Befehl im cmd-Prompt:
+      > docker run hello-world
+    * Erscheint die Meldung "Hello from Docker!", ist die Installation erfolgreich. 
+
+
 
 
 
