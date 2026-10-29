@@ -110,7 +110,7 @@ def show_results(results, tot_results):
     display(Markdown(f'**Results** ({len(results)}/{tot_results}):  \n'))
     for score, path in results:
         rel_path = os.path.relpath(path, os.getcwd())
-        link = f'[({score}) {md_escape(rel_path)}]({rel_path})'
+        link = f'[({score}) {md_escape(rel_path)}](<{rel_path}>)'  # <rel_path> required im Filename has Spaces
         link = Markdown(link)
         display(link)
 
@@ -148,7 +148,7 @@ class InputCollector:
     @property
     def args(self):
         return (self._alls.value, self._anys.value, self._max_res.value,
-                self._ignorecase.value, self._regex,
+                self._ignorecase.value, self._regex.value,
                 )
 
     def _ipython_display_(self):
@@ -177,4 +177,11 @@ class NBFinder:
 
 
 if __name__ == '__main__':
-    display(NBFinder('.'))
+    import sys
+
+    JLAB_DIR = '/home/probst/Projects/JupyterNotebooks'
+    if len(sys.argv) == 2:
+        root = sys.argv[1]
+    else:
+        root = os.environ.get('JLAB_DIR', JLAB_DIR)
+    display(NBFinder(root))

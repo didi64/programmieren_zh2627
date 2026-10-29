@@ -1,28 +1,77 @@
+Ziel: Name in sortierter Liste suchen
+
+Aufgabe zu Binary Search: weitere Anwendungen?
+
+Typen, Casting?
+
+
+DockerSetup. Security Issue fixen (Simone)
+
+
+Augaben Loesungen
+1. - 4. schon besprochen 
+5., 6. modulo:
+6. (500 + x) % 137 is 0.
+   einfacher: n // r + n % r = n
+7. Slicing, 8. Slicing, 9. Surgery, 
+10. Textbox, anzahl spaces #...<text> ausrechenen.
+11. Genau wie summe aber addiere n**3.
+12. Schwierigkeit: wie oft muss die Zelle ausgefuehrt werden.
+    Teste an ein paar Beispielen.
+13. Code wiederverwenden:
+    6 und 12.
+
+------------
+
+DockerSetup 10'
+---
+Nachbesprechung Aufgaben 15'
+--
+
+Codezellen von Hand auszufuheren ist das erste was wir automatisieseren/programmieren
+wollen.
+
+Zwei kleine Sachen, Typen wie Wahrheitswerte, Vergleichsoperatorn
+und fuer spaeter, den Type  Tuple.
+
+Vergleichsoperatoren
+
+For-Schliefen 30'
 
 
 
+Dazu brauchen wir Schleifen.
+Es gibt 2 Arten von Schleifen.
+For und While.
+For Schleifen laufen eine fixe Anzahl mal.
+Nie Endlosschleifen. Einfacher zu handhaben!
 
-Tokens: so wie erzaehlt wohl wahr fuer fruehe Version von Python.
-        Situation komplizierter,
-        gibt auch sog. soft keywords, 
-        Woerter, die nur in einem bestimmenten Kontext als Keywords betrachtet werden.
-        Soft Keywords
+---
+For Schleifen bieten noch wesentlich mehr als hier gezeigt.
+Um diese Extra Funktionalitaet bieten zu koennen,
+braucht man so ein Iterarable.
 
-    # legal und funktioniert!
-    match status:
-        case 400:
-            case = "Bad request"
-        case 404:
-            case = "Not found"
-        case 418:
-            case = "I'm a teapot"
-        case _:
-            case = "Something's wrong with the internet"
-    
-    case
----------------------
+Was alles unter der Haube passiert braucht man nicht zu wissen.
+
+Erwaehne, was unter der Haube passiert.
+it = iter('abc') # iter(iterable) -> Iterator
+next(it)
+---
+
+for character in 'abc':
+    print(character, end=', ')  # Schleifenbody
+
+print() 
+print(character)  # Wert von character nach Ende der Schleife
 
 
+Bedingte Anweisungen 30'
 
+break und continue 15'
 
+Binaere Suche 30'
+
+Cheatsheet 5'
+
+Aufgaben 45' 
 
