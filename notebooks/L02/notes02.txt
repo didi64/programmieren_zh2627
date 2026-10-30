@@ -1,3 +1,40 @@
+Beginne mit Miniaufgaben fuer Recap.
+3 Moegliche Papier und Stift Pruefungsfragen
+
+Literale: 1, 2.3 'foobar', Variabeln
+
+Schon definierte Namen (FUnktionen)
+print, max, min, sum, abs, round
+
+1. Wie weit ist es von Punkt (3, 5) nach (12, 17)?
+Quadrate und Wurzel rechnen!
+((12 - 3)**2 + (17 - 5)**2) ** 0.5
+
+2. String un Slicenotation.
+Beginne mit 
+
+word = 'foobar'
+i = 3
+
+head = word[:i]
+tail = word[i:]
+head, tail
+
+3. Teste (1+2+...+n)^2 = (1^3 + 2^3 + ... + n^3).
+sum_of_numbers = 0
+sum_of_cubes = 0
+i = 1
+
+sum_of_numbers = sum_of_numbers+i
+sum_of_cubes = sum_of_cubes+i**3
+i = i + 1
+
+sum_of_numbers**2 == sum_of_cubes, sum_of_numbers, sum_of_cubes, i
+
+-------------------------
+
+
+
 Ziel: Name in sortierter Liste suchen
 
 Aufgabe zu Binary Search: weitere Anwendungen?
@@ -6,7 +43,8 @@ Typen, Casting?
 
 
 DockerSetup. Security Issue fixen (Simone)
-
+philipp. add 127.0.0.1: for 10000:8888
+docker run --name jupyter -d -p 127.0.0.1:10000:8888 --hostname jlab -v .:/home/studi/work 
 
 Augaben Loesungen
 1. - 4. schon besprochen 
