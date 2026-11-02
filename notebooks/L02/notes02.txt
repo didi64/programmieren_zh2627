@@ -1,16 +1,53 @@
-Beginne mit Miniaufgaben fuer Recap.
-3 Moegliche Papier und Stift Pruefungsfragen
 
-Literale: 1, 2.3 'foobar', Variabeln
+----
+### Image Update für Mac-Users, Netzwerkzugriff auf Jupyterlab unterbinden
+1. Starte DockerDesktop
+2. (nur Mac) Führe im Windows Commandprompt (CMD) folgenden Befehl aus:
+    ```cmd
+    docker pull dieterprobst/jlab:3.2
+    ```
+3. Navigiere in deinen spezifischen Kursordner, in dem du deine Notebooks speichern möchtest.
+   Bist du in deinem Home Verzeichnis `C:\Users\YourUsername` oder ähnlich,
+   ```cmd
+    cd programmieren
+   ```  
+   sonst  
+   ```cmd
+    cd /d %USERPROFILE%
+   ```
+   dann
+   ```cmd
+    cd programmieren
+    ```
+5. Führe im Windows Commandprompt (CMD) folgenden Befehl aus:
+   ```cmd
+   docker run --name jupyter -d -p 127.0.0.1:10000:8888 --hostname jlab -v .:/home/studi/work dieterprobst/jlab:3.2
+   ```
 
-Schon definierte Namen (FUnktionen)
-print, max, min, sum, abs, round
+-----------
+Visit https://editor.stackoverflow.design/, select Markdown, copy paste
+the following then chose Riche text, copy/paste into Teamschat
+--------
 
-1. Wie weit ist es von Punkt (3, 5) nach (12, 17)?
-Quadrate und Wurzel rechnen!
-((12 - 3)**2 + (17 - 5)**2) ** 0.5
+1. Dockersetup
+    Security Issue fixen (Simone)
+    philipp. add 127.0.0.1: for 10000:8888
+    docker run --name jupyter -d -p 127.0.0.1:10000:8888 --hostname jlab -v .:/home/studi/work 
 
-2. String un Slicenotation.
+10'
+
+Recap:
+
+- Literale: 1, 2.3 'foobar', Variabeln
+
+  Schon definierte Namen (Funktionen)
+-  print, max, min, sum, abs, round
+
+1. Distanz von (3, 5) nach (12, 17)?
+   Quadrate und Wurzel rechnen!
+   ((12 - 3)**2 + (17 - 5)**2) ** 0.5
+
+2. String und Slicenotation.
 Beginne mit 
 
 word = 'foobar'
@@ -20,31 +57,25 @@ head = word[:i]
 tail = word[i:]
 head, tail
 
+Programmieren, Zelle mehrfach ausfuehren.
 3. Teste (1+2+...+n)^2 = (1^3 + 2^3 + ... + n^3).
+# Initialisierung
 sum_of_numbers = 0
 sum_of_cubes = 0
 i = 1
 
-sum_of_numbers = sum_of_numbers+i
-sum_of_cubes = sum_of_cubes+i**3
+# Rechnug
+sum_of_numbers = sum_of_numbers + i
+sum_of_cubes = sum_of_cubes + i**3
 i = i + 1
 
+# test
 sum_of_numbers**2 == sum_of_cubes, sum_of_numbers, sum_of_cubes, i
 
 -------------------------
+15'
 
-
-
-Ziel: Name in sortierter Liste suchen
-
-Aufgabe zu Binary Search: weitere Anwendungen?
-
-Typen, Casting?
-
-
-DockerSetup. Security Issue fixen (Simone)
-philipp. add 127.0.0.1: for 10000:8888
-docker run --name jupyter -d -p 127.0.0.1:10000:8888 --hostname jlab -v .:/home/studi/work 
+- Cheatsheet 
 
 Augaben Loesungen
 1. - 4. schon besprochen 
@@ -60,23 +91,24 @@ Augaben Loesungen
     6 und 12.
 
 ------------
+15' Gib etwas Zeit, im Raeume, komme vorbei.
 
-DockerSetup 10'
----
-Nachbesprechung Aufgaben 15'
---
-
-Codezellen von Hand auszufuheren ist das erste was wir automatisieseren/programmieren
-wollen.
-
-Zwei kleine Sachen, Typen wie Wahrheitswerte, Vergleichsoperatorn
-und fuer spaeter, den Type  Tuple.
+=============
+Richtung For-Schleifen:
+    Codezellen von Hand auszufuheren ist das erste was wir automatisieseren/programmieren
+    wollen.
+    
+    Drei kleine Sachen, 
+      a) Wahrheitswerte, 
+      b) Vergleichsoperatoren
+      c) fuer spaeter, den Type Tuple.
 
 Vergleichsoperatoren
+Tuple
 
 For-Schliefen 30'
 
-
+Aufgaben 1 -- 5:
 
 Dazu brauchen wir Schleifen.
 Es gibt 2 Arten von Schleifen.
@@ -102,14 +134,217 @@ for character in 'abc':
 print() 
 print(character)  # Wert von character nach Ende der Schleife
 
+Aufgaben 1 -- 6:
+
+Pause
 
 Bedingte Anweisungen 30'
 
+Aufgaben 7, 8:
+
+---
+
 break und continue 15'
 
-Binaere Suche 30'
+Aufgaben 9 - 11:
 
-Cheatsheet 5'
+Binaere Suche 30'
+Aufgabe 12
 
 Aufgaben 45' 
 
+------
+
+
+Aufgaben Loesungen:
+
+
+# 1
+word = 'foobar'
+i = 3
+
+head = word[:i]
+tail = word[i:]
+head, tail
+
+# 2.11
+n = 5
+total = 0
+for n in range(1, n+1):
+    total = total + n**3
+    n = n - 1
+
+total
+
+# 2.12
+start = 20
+step = 6
+stop = 45
+
+sep = ','
+numbers = ''
+
+for number in range(start, stop, step):
+    numbers = numbers + str(number) + sep
+
+numbers[:-1]
+
+# 2.13
+start_ = 500
+stop = 2000
+step = 137
+
+start = start_ + (start_ % step)
+sep = ','
+numbers = ''
+
+for number in range(start, stop, step):
+    numbers = numbers + str(number) + sep
+
+numbers[:-1]
+
+
+# 3
+for i in range(10):
+    n = i + 1
+    number = str(n)
+    padding = ' '*(2 - len(number))
+    line = padding + number + ' mal 7 ist ' + str(n*7)
+    print(line)
+
+
+# 4
+sum_odd = 0
+for i in range(1, 100, 2):
+    sum_odd = sum_odd + i
+
+sum_odd
+
+# 5a)
+numbers_ = tuple(range(3, 100, 3))
+numbers_[:3], numbers_[-3:]
+
+# 5b)
+numbers = ()
+for i in range(3, 100, 3):
+    numbers = numbers + (i,)
+
+print('Anzahl:', len(numbers))
+print('First 3:', numbers[:3])
+print('Last 3:', numbers[-3:])
+
+
+numbers == numbers_
+
+
+# 6
+word = 'foobar'
+m = 3
+
+head = ''
+tail = ''
+n = len(word)
+
+for i in range(m):
+    head = head + word[i]
+
+for j in range(i+1, n):
+    tail = tail + word[j]
+
+head, tail, head == word[:m], tail == word[m:]
+
+
+
+# 7
+word = 'abakadabra'
+count = 0
+n = len(word)
+
+for c in word:
+    if word[i] == c:
+        count = count + 1
+
+count
+
+# 8
+word = 'abcde'
+character = 'e'
+n = len(word)
+
+contains_character = False
+
+for c in word:
+    if c == character:
+        contains_character = True
+        break
+
+contains_character
+
+
+# 9
+word = 'abakadabra'
+character = 'a'
+
+occurrences = ()
+n = len(word)
+
+for i in range(n):
+    c = word[i]
+    if c == character:
+        occurrences = occurrences + (i,)
+
+occurrences
+
+
+result = True
+
+for i in occurrences:
+    if word[i] != character:
+        result = False
+        break
+
+result
+
+
+
+# 10
+number = 899
+is_prime = True
+bound = int(number**0.5 + 1)
+
+for i in range(2, bound):
+    if number % i == 0:
+        is_prime = False
+        break
+
+is_prime, i
+
+
+# 11
+lower_bound = 0             # inklusiv
+upper_bound = len(names)    # exklusiv
+target = 'David'
+
+for i in range(upper_bound):
+    idx = (lower_bound + upper_bound) // 2
+    name = names[idx]
+
+    if name == target or lower_bound >= upper_bound:
+        break
+    if name < target:          # zu klein
+        lower_bound = idx+1    # inklusiv
+    elif name > target:        # zu gross
+        upper_bound = idx      # exklusiv
+
+    if lower_bound == upper_bound:
+        break
+
+
+success = names[idx] == target
+
+
+print('\nlooked up', i+1, 'names')
+if success:
+    print(target, 'is at index', idx)
+else:
+    print(target, 'not found!')
