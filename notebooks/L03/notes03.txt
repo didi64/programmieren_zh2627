@@ -1,7 +1,4 @@
-Braucht noch Aufgaben_L03
-Verwende auch Beispiele aus den Notebooks, ev. minimale change.
-Plus einiges aus easy exercises.
-
+Aufraeumen: L02 -> Aufgaben_L01_A, For-Schleifen, Dockersetup
 
 Open cheatsheat L02/cheatsheet.ipynb
 
