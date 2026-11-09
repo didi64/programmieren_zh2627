@@ -6,7 +6,7 @@ TSY
 5  Gouda Til
 6  Gutierrez Russel
 7  Maloku Arlind
-8  Muralitharan Luxshan
+# 8  Muralitharan Luxshan
 9  Phari Loyang Kunden     
 10 Rezaee Ali
 11 Stankovic Kristijan
@@ -20,7 +20,7 @@ Helio
 Til
 Russel
 Arlind
-Luxshan
+# Luxshan
 Kunden
 Fabio
 Motahareh

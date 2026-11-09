@@ -1,12 +1,14 @@
-
-----
 ### Image Update für Mac-Users, Netzwerkzugriff auf Jupyterlab unterbinden
 1. Starte DockerDesktop
-2. (nur Mac) Führe im Windows Commandprompt (CMD) folgenden Befehl aus:
+2. (nur Mac) Wähle eine Variante.
+*  In Docker-Desktop: Klicke links auf Images,
+   klicke dann beim Image `dieterprobst/jlab3:2` rechts auf die 3 Punkte `⋮`, dann `pull`.
+* Im Command-Prompt: `docker pull dieterprobst/jlab3:2`.
+3. (nur Mac) Führe im Windows Commandprompt (CMD) folgenden Befehl aus:
     ```cmd
     docker pull dieterprobst/jlab:3.2
     ```
-3. Navigiere in deinen spezifischen Kursordner, in dem du deine Notebooks speichern möchtest.
+4. Navigiere in deinen spezifischen Kursordner, in dem du deine Notebooks speichern möchtest.
    Bist du in deinem Home Verzeichnis `C:\Users\YourUsername` oder ähnlich,
    ```cmd
     cd programmieren
@@ -23,7 +25,6 @@
    ```cmd
    docker run --name jupyter -d -p 127.0.0.1:10000:8888 --hostname jlab -v .:/home/studi/work dieterprobst/jlab:3.2
    ```
-
 -----------
 Visit https://editor.stackoverflow.design/, select Markdown, copy paste
 the following then chose Riche text, copy/paste into Teamschat

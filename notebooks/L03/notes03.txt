@@ -1,5 +1,253 @@
-f-string
-the operator in
+Braucht noch Aufgaben_L03
+Verwende auch Beispiele aus den Notebooks, ev. minimale change.
+Plus einiges aus easy exercises.
 
-print
-input (es gibt bessere Wege!)
+
+Open cheatsheat L02/cheatsheet.ipynb
+
+
+-> for loop.
+   Loesung zu 2.13 ist falsch!
+
+    7ner Reihe:
+    # padding = ' '*(2 - len(number))
+    # line = padding + number + ' mal 7 ist ' + str(n*7)
+    line = number + ' mal 7 ist ' + str(n*7)
+
+Zuerst For-Loop
+
+print('test')  # 3x ausfuehren
+
+for i in range(3):
+    print('test')  
+    # print(i)
+
+i   # i=?
+
+for i in range(3):
+    print('test')  
+print(i)           # Einrueckung relevant!
+---------------------------
+for i in range(3):
+    print('test'[:i+1])  
+print(i)
+-----------
+
+Starte mit Fehler korrigieren.
+
+Index- und Slicenotation fuer Strings:
+
+s = 'abcde'
+len(s)
+
+s[0]
+s[-1]
+s[:2]
+s[1:3]
+
+s = '#' + 20*' ' + '#'
+s  # Zeigt Wert von s an (String ist in quotes '...')
+
+print(s)  # gibt s aus.
+print('-' * 22)
+----------
+Nachbesprechung Aufgaben_L02 1-4, spaeter, nach tuple auch noch 5,6).
+For und range:
+
+tuple(range(5))
+tuple(range(20, 5, -3))
+----------
+
+
+Aufgaben_L01_a.ipynb
+
+gemeinsam:
+4. kein rot: -> Zeit, Code zu testen.
+   Rot: Code wird nicht laufen.
+   versuchen, dass zu beheben.
+   manchmal wird Fehler an falscher Stelle angezeigt.
+   Grund: Gruppierung stimmt nicht.
+          inkorrekt eingerueckt, Doppelpunkte anfalschen Stellen
+
+7b) Fehler wird nur erkannt, da M nicht definiert!
+    Waere M = 'A' (z.B. in frueherer Zelle, dann ist Fehler schwieriger zu finden!
+                   Programm laeuft, aber macht nicht das richtige!)
+    nachname_capitalized = M + nachname[1:]
+   
+8) nur logische Fehler, kein Syntaxfehler
+9) check: s_new right? write down s_new as a Comment!
+   s:       '.OX.X.O.X'  
+   s_new: = '.OX.XXO.X'  e.g. on line 5
+10) fix SHARP, now just a detail.
+    what part is wrong:
+    test the rest: extra_line = '\n' #SHARP + width * SPACE + SHARP
+11) orange und rot weg: korrigiert bereits alle Syntaxfehler!
+
+12) Syntax (zufaellig) korrekt/legal, aber nicht was beabsichtigt!
+    
+------------
+
+Prelude Vergleichsoperatoren:
+# + ist ein 2-stelliger Operator, der 2 Ausdruecke addiert (zusammenhaengt).
+# == ist ein 2-stelliger Operator, der 2 Ausdruecke vergleicht
+# das Resultat ist True oder False.
+# 1 + 2 == 3
+
+-> Vergleichsoperatoren, Wahrheitswerte: sage mehr im Notebook
+Was sind True und False? 
+Im Wesentlichen 1  und 0 (betonen aber die Verwendung als Wahrheitswert)
+Wahrheitswerte, falsy und truthy
+
+True
+int(True)
+True + True
+True - True ? False or 0?
+
+x = 2  
+(x > 0) - (x < 0)  # True - False = 1
+
+x = -2  
+(x > 0) - (x < 0)  # False - True = -1
+
+x = 0  
+(x > 0) - (x < 0)  # False - False = 0
+-------------
+
+
+Dann Aufgabe L03, 1.
+---
+
+Tuple (Prelude) Cousin von String.
+Neuer Typ Tuple. Cousin des Typs String.
+String speichert eine Liste von Zeichen.
+Tuple speichert eine Liste mit bel.Objekten.
+Tuple und str sind immutable/unveraenderbar.
+
+Kann einzelne Zeichen/Elemente nicht aendern, muss jeweils
+einen neuen String/Tuple konstruieren.
+
+Dekonstruktion mit Index und Slicenotation, dann Rekonstruktion.
+
+-> Tuple.ipynb
+sage 
+(3,)  # ein elementig
+(3,) * 3
+(3,) * 0
+(3,) * False
+(3,) * True
+
+
+Aufgabe L03_2
+
+Prelude if-then-else:
+Vorhin: Fallunterscheidung mit Trick:
+
+occurrences = ()
+is_match = True
+occurrences = occurences + (1,) * is_match
+
+occurrences = ()
+is_match = True
+
+if is_match:
+    occurrences = occurences + (1,)
+
+occurrences
+
+-> bedinge Anweisungen: if then else
+Aufgabe L03, 3 (Zaehlen mit if, fizzbuzz)
+
+----
+Prelude break, continue
+Problem: 
+
+DOT = '.'
+email = 'max.muster@example.com'
+
+Ziel: erstes Auftreten von DOT finden.
+
+Schleife durchlaufen, bis '.' gefunden.
+a) Schleife bei Erfolg vorzeitig verlassen (break)
+b) While-Schleife
+
+
+# Pseudocode break, continue
+
+n = len(email)
+for i in range(n):
+    falls email[i] gleich DOT:
+        verlasse Schleife
+i   
+----
+# Python
+n = len(email)
+for i in range(n):
+    if email[i] == DOT:
+        break
+i   
+-------------
+Zeichen aus Wort entfernen
+
+word = 'abakadabra'
+character = 'a'
+
+result = ''
+for c in word:
+    falls c ungleich character:
+        wiederhole Schleife sofort
+
+    result = result + c
+
+result
+
+
+
+
+break, continue
+-> Aufgaben 3.5 und 2.11
+
+Groesserer Beispiel emails.ipynb
+
+-Emails
+
+ 
+Binary Search
+Funktionsaufrufe?
+
+
+
+--emails mit debug infos----
+
+DOT = '.'
+QUOTE = '"'
+
+current_first_letter = ''
+groups = ()
+fnames = ()
+
+for email in emails:
+    print('\naddress:', email)
+    letter = email[0]
+    if letter != current_first_letter:
+        print('    letter:',
+              QUOTE + current_first_letter + QUOTE,
+              '->',
+              QUOTE + letter + QUOTE,
+              )
+        current_first_letter = letter
+        if fnames:
+            print('    adding new group:', fnames)
+            groups = groups + (fnames, )
+        fnames = ()
+
+    # get fname
+    n = len(email)
+    for i in range(n):
+        if email[i] == DOT:
+            fname = email[:i]
+            fnames = fnames + (fname,)
+            print('found', DOT, 'at index', i, '->', fname)
+            break
+
+
+groups = groups + (fnames,)
