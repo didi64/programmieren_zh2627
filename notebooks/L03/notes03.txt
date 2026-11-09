@@ -1,5 +1,9 @@
 Aufraeumen: L02 -> Aufgaben_L01_A, For-Schleifen, Dockersetup
 
+Keine neuen Notebooks ausser ein paar neue Aufgaben
+und Loesungen zum 1. Teil der Aufgaben der Lektion 2,
+mehr Loesungen dann das naechste Mal.
+
 Open cheatsheat L02/cheatsheet.ipynb
 -Zeichen oder Teil aus String herausgreifen
 word = 'abcde'
@@ -37,6 +41,7 @@ for i in range(3):
     print('test'[:i+1])  
 print(i)
 -----------
+15' 
 
 Nachbesprechung Aufgaben_L02 1-4, spaeter, nach tuple auch noch 5,6).
 weise auf Fehler in Loesung zu 2.13 hin.
@@ -50,13 +55,15 @@ weise auf Fehler in Loesung zu 2.13 hin.
 
 Fehler korrigieren: Aufgaben_L01_a.ipynb
 
+10'
+
 gemeinsam:
 4. kein rot: -> Zeit, Code zu testen.
    Rot: Code wird nicht laufen.
    versuchen, dass zu beheben.
    manchmal wird Fehler an falscher Stelle angezeigt.
    Grund: Gruppierung stimmt nicht.
-          inkorrekt eingerueckt, Doppelpunkte anfalschen Stellen
+          inkorrekt eingerueckt, Doppelpunkte an falschen Stellen
 
 7b) Fehler wird nur erkannt, da M nicht definiert!
     Waere M = 'A' (z.B. in frueherer Zelle, dann ist Fehler schwieriger zu finden!
@@ -73,7 +80,8 @@ gemeinsam:
 11) orange und rot weg: korrigiert bereits alle Syntaxfehler!
 
 12) Syntax (zufaellig) korrekt/legal, aber nicht was beabsichtigt!
-    
+
+5' + 15
 ------------
 
 Prelude Vergleichsoperatoren:
@@ -105,6 +113,7 @@ x = 0
 
 Dann Aufgabe L03, 1.
 ---
+20'
 
 Tuple (Prelude) Cousin von String.
 Neuer Typ Tuple. Cousin des Typs String.
@@ -129,6 +138,7 @@ numbers = (23, 45, 67, 78)
 numbers_new = numbers[:2] + numbers[3:]
 
 Aufgabe L03.2, L02.4 und L02.5
+20'
 
 Prelude if-then-else:
 Vorhin: Fallunterscheidung mit Trick:
@@ -148,6 +158,7 @@ occurrences
 -> bedinge Anweisungen: if then else
 Aufgabe L03, 3 (Zaehlen mit if, fizzbuzz)
 
+20'
 ----
 Prelude break, continue
 Problem: 
@@ -196,6 +207,7 @@ for c in word:
 
 result
 
+20' 
 
 Prelude Binaere Suche
 
