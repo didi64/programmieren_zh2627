@@ -206,48 +206,446 @@ result
 break, continue
 -> Aufgaben 3.5 und 2.11
 
-Groesserer Beispiel emails.ipynb
 
--Emails
+erster komplexeres Problem:
+Namen in einer sortierten Liste suchen.
 
- 
+naiv: der Reihe nach alle Namen testen.
+      Ist es der 1., 2. ...999.te?
+besser: Errate Position (Mitte).
+        Suche als naechstes unterhalb oder oberhalb der Mitte.    
+        u.s.w.
+
 Binary Search
-Funktionsaufrufe?
+
+Aufgabe 2.12.
+
+
+Aufgaben Loesungen 2:
+
+
+# 1
+word = 'foobar'
+i = 3
+
+head = word[:i]
+tail = word[i:]
+head, tail
+
+# 2.11
+n = 5
+total = 0
+for n in range(1, n+1):
+    total = total + n**3
+    n = n - 1
+
+total
+
+# 2.12
+start = 20
+step = 6
+stop = 45
+
+sep = ','
+numbers = ''
+
+for number in range(start, stop, step):
+    numbers = numbers + str(number) + sep
+
+numbers[:-1]
+
+# 2.13
+start_ = 500
+stop = 2000
+step = 137
+
+start = start_ + (start_ % step)
+sep = ','
+numbers = ''
+
+for number in range(start, stop, step):
+    numbers = numbers + str(number) + sep
+
+numbers[:-1]
+
+
+# 3
+for i in range(10):
+    n = i + 1
+    number = str(n)
+    padding = ' '*(2 - len(number))
+    line = padding + number + ' mal 7 ist ' + str(n*7)
+    print(line)
+
+
+# 4
+sum_odd = 0
+for i in range(1, 100, 2):
+    sum_odd = sum_odd + i
+
+sum_odd
+
+# 5a)
+numbers_ = tuple(range(3, 100, 3))
+numbers_[:3], numbers_[-3:]
+
+# 5b)
+numbers = ()
+for i in range(3, 100, 3):
+    numbers = numbers + (i,)
+
+print('Anzahl:', len(numbers))
+print('First 3:', numbers[:3])
+print('Last 3:', numbers[-3:])
+
+
+numbers == numbers_
+
+
+# 6
+word = 'foobar'
+m = 3
+
+head = ''
+tail = ''
+n = len(word)
+
+for i in range(m):
+    head = head + word[i]
+
+for j in range(i+1, n):
+    tail = tail + word[j]
+
+head, tail, head == word[:m], tail == word[m:]
 
 
 
---emails mit debug infos----
+# 7
+word = 'abakadabra'
+count = 0
+n = len(word)
 
-DOT = '.'
+for c in word:
+    if word[i] == c:
+        count = count + 1
+
+count
+
+# 8
+word = 'abcde'
+character = 'e'
+n = len(word)
+
+contains_character = False
+
+for c in word:
+    if c == character:
+        contains_character = True
+        break
+
+contains_character
+
+
+# 9
+word = 'abakadabra'
+character = 'a'
+
+occurrences = ()
+n = len(word)
+
+for i in range(n):
+    c = word[i]
+    if c == character:
+        occurrences = occurrences + (i,)
+
+occurrences
+
+
+result = True
+
+for i in occurrences:
+    if word[i] != character:
+        result = False
+        break
+
+result
+
+
+
+# 10
+number = 899
+is_prime = True
+bound = int(number**0.5 + 1)
+
+for i in range(2, bound):
+    if number % i == 0:
+        is_prime = False
+        break
+
+is_prime, i
+
+# 11 loesche alle Vorkommen eines Zeichens aus Wort.
+word = 'abakadabra'
+character = 'a'
+
+result = ''
+for c in word:
+    if c == character:   # character ueberspringen
+        continue
+    result = result + c
+
+result
+
+# 12
+lower_bound = 0             # inklusiv
+upper_bound = len(names)    # exklusiv
+target = 'David'
+
+for i in range(upper_bound):
+    idx = (lower_bound + upper_bound) // 2
+    name = names[idx]
+
+    if name == target or lower_bound >= upper_bound:
+        break
+    if name < target:          # zu klein
+        lower_bound = idx+1    # inklusiv
+    elif name > target:        # zu gross
+        upper_bound = idx      # exklusiv
+
+    if lower_bound == upper_bound:
+        break
+
+
+success = names[idx] == target
+
+
+print('\nlooked up', i+1, 'names')
+if success:
+    print(target, 'is at index', idx)
+else:
+    print(target, 'not found!')
+
+
+
+Loesungen Aufgaben L03
+
+1
+# Vergleichsop, Vorkommen eines Zeichens in
+# einem String zaehlen
+word = 'abca'
+character = 'a'
+count = 0
+
+n = len(word)
+for i in range(n):
+    is_match = (word[i] == character)
+    count = count + is_match
+
+count
+
+# 2 Vorkommen eines Buchstaben ohne if
+word = 'abca'
+character = 'a'
+
+occurrences = ()
+
+
+n = len(word)
+for i in range(n):
+    is_match = (word[i] == character)
+    occurrences = occurrences + ((i,) * is_match)
+
+occurrences
+
+# 3 Vorkommen mit if
 QUOTE = '"'
 
-current_first_letter = ''
-groups = ()
-fnames = ()
+word = 'abca'
+character = 'a'
+n = len(word)
+count = 0
 
-for email in emails:
-    print('\naddress:', email)
-    letter = email[0]
-    if letter != current_first_letter:
-        print('    letter:',
-              QUOTE + current_first_letter + QUOTE,
-              '->',
-              QUOTE + letter + QUOTE,
-              )
-        current_first_letter = letter
-        if fnames:
-            print('    adding new group:', fnames)
-            groups = groups + (fnames, )
-        fnames = ()
+for i in range(n):
+    if word[i] == character:
+        count = count + 1
 
-    # get fname
-    n = len(email)
-    for i in range(n):
-        if email[i] == DOT:
-            fname = email[:i]
-            fnames = fnames + (fname,)
-            print('found', DOT, 'at index', i, '->', fname)
-            break
+print(QUOTE+character+QUOTE, 'found', count, 'times')
+
+fizzbuzz = (
+    '1', '2', 'fizz', '4', 'buzz',
+    'fizz', '7', '8', 'fizz', 'buzz',
+    '11', 'fizz', '13', '14',
+    'fizzbuzz', '16', '17', 'fizz', '19',
+)
+
+#4 Fizzbuzz
+N = 20
+answers = ()
+
+for n in range(1, N):
+    if n % 3 == 0 and n % 5 == 0:
+        answer = 'fizzbuzz'
+    elif n % 3 == 0:
+        answer = 'fizz'
+    elif n % 5 == 0:
+        answer = 'buzz'
+    else:
+        answer = str(n)
+
+    answers = answers + (answer,)
+
+answers == fizzbuzz
+
+#5 finde Zeichen, gib Index i oder -1 zurueck
+word = 'abcdefgh'
+character = 'f'
+
+n = len(word)
+
+result = False
+
+for i in range(n):
+    if word[i] == character:
+        result = True        # Position gefunden, done
+        break
+
+if not result:
+    i = -1
+
+i
+
+#6 erster Tier (Tier vor 1.tem Space)
+SPACE = ' '
+animals = 'Ape Bee Cat Dog Eagle'
+
+n = len(animals)
+for i in range(n):
+    if animals[i] == SPACE:
+        break
+
+first_animal = animals[:i]
+print('first animal:', first_animal)
+
+#7 auch mit nur einem Tier
+SPACE = ' '
+# animals = 'Ape Bee Cat Dog Eagle'
+animals = 'Fox'
+
+n = len(animals)
+for i in range(n):
+    if animals[i] == SPACE:
+        break
+
+if animals[i] == SPACE:
+    first_animal = animals[:i]
+else:
+    first_animal = animals
+print('first animal:', first_animal)
 
 
-groups = groups + (fnames,)
+#8 letztes Tier, suche von hinten
+SPACE = ' '
+animals = 'Ape Bee Cat Dog Eagle'
+
+n = len(animals)
+for i in range(1, n+1):
+    if animals[-i] == SPACE:
+        break
+
+if animals[-i] == SPACE:
+    last_animal = animals[-i+1:]
+else:
+    last_animal = animals
+
+print('last animal:', last_animal)
+
+#9 entferne fuehrenden Space
+SPACE = ' '
+word = '   foobar  '
+
+n = len(word)
+
+for i in range(n):
+    if word[i] != SPACE:
+        break
+
+word_lstrippt = word[i:]
+word_lstrippt
+
+# 10 entferne tailing space
+SPACE = ' '
+word = '  foobar  '
+
+n = len(word)
+
+for i in range(1, n+1):
+    if word[-i] != SPACE:
+        break
+
+word_rstrippt = word[:n-i+1]
+word_rstrippt
+
+#11 kombiniere 10 und 11
+SPACE = ' '
+word = '   foobar  '
+
+n = len(word)
+
+for i in range(n):
+    if word[i] != SPACE:
+        break
+
+for j in range(1, n+1):
+    if word[-j] != SPACE:
+        break
+
+word_strippt = word[i:n-j+1]
+word_strippt
+
+#12 ersetze Zeichen , durch ;
+OLD_SEP = ','
+NEW_SEP = ';'
+
+words = 'alpha, beta, gamma, delta'
+words_new = ''
+
+n = len(words)
+for i in range(n):
+    if words[i] != OLD_SEP:
+        words_new = words_new + words[i]
+    else:
+        words_new = words_new + NEW_SEP
+
+words_new
+
+#13 finde Laege des kuerzesten und laengsten names in names
+min_len = len(names)
+max_len = 0
+
+for name in names:
+    min_len = min(min_len, len(name))
+    max_len = max(max_len, len(name))
+
+min_len, max_len
+
+#14 Tuple mit kuerzesten und laengsten namen
+shortest = ()
+longest = ()
+
+for name in names:
+    if len(name) == min_len:
+        shortest = shortest + (name,)
+    if len(name) == max_len:
+        longest = longest + (name,)
+
+shortest, longest
+
+#15 alle Namen mit 10 Buchstaben
+ten_letter_names = ()
+LEN = 10
+
+for name in names:
+    if len(name) == 10:
+        ten_letter_names = ten_letter_names + (name,)
+
+ten_letter_names
