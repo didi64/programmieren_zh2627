@@ -1,17 +1,24 @@
 Aufraeumen: L02 -> Aufgaben_L01_A, For-Schleifen, Dockersetup
 
 Open cheatsheat L02/cheatsheet.ipynb
+Zeichen oder Teil aus String herausgreifen
+word = 'abcde'
+len(word)
+word[0]
+word[-1]
+word[1:3]
 
 
--> for loop.
-   Loesung zu 2.13 ist falsch!
+s = '#' + 20*' ' + '#'
+s  # Zeigt Wert von s an (String ist in quotes '...')
 
-    7ner Reihe:
-    # padding = ' '*(2 - len(number))
-    # line = padding + number + ' mal 7 ist ' + str(n*7)
-    line = number + ' mal 7 ist ' + str(n*7)
+print(s)  # gibt s aus.
+print('-' * 22)
 
-Zuerst For-Loop
+For-Loop und range:
+
+range(3)
+tuple(range(3))
 
 print('test')  # 3x ausfuehren
 
@@ -30,31 +37,23 @@ for i in range(3):
 print(i)
 -----------
 
-Starte mit Fehler korrigieren.
 
-Index- und Slicenotation fuer Strings:
+-> for loop.
+   Loesung zu 2.13 ist falsch!
 
-s = 'abcde'
-len(s)
+    7ner Reihe:
+    # padding = ' '*(2 - len(number))
+    # line = padding + number + ' mal 7 ist ' + str(n*7)
+    line = number + ' mal 7 ist ' + str(n*7)
 
-s[0]
-s[-1]
-s[:2]
-s[1:3]
-
-s = '#' + 20*' ' + '#'
-s  # Zeigt Wert von s an (String ist in quotes '...')
-
-print(s)  # gibt s aus.
-print('-' * 22)
-----------
 Nachbesprechung Aufgaben_L02 1-4, spaeter, nach tuple auch noch 5,6).
+weise auf Fehler in Loesung zu 2.13 hin.
 For und range:
 
 tuple(range(5))
 tuple(range(20, 5, -3))
-----------
 
+Fehler korrigieren:
 
 Aufgaben_L01_a.ipynb
 
@@ -134,7 +133,7 @@ sage
 (3,) * True
 
 
-Aufgabe L03_2
+Aufgabe L03.2, L02.4 und L02.5
 
 Prelude if-then-else:
 Vorhin: Fallunterscheidung mit Trick:
@@ -183,6 +182,11 @@ for i in range(n):
         break
 i   
 -------------
+
+break, continue
+Aufgaben L03.5, L02.11 und (7-9)
+
+
 Zeichen aus Wort entfernen
 
 word = 'abakadabra'
@@ -198,11 +202,7 @@ for c in word:
 result
 
 
-
-
-break, continue
--> Aufgaben 3.5 und 2.11
-
+Prelude Binaere Suche
 
 erster komplexeres Problem:
 Namen in einer sortierten Liste suchen.
@@ -217,7 +217,7 @@ Binary Search
 
 Aufgabe 2.12.
 
-
+-------------
 Aufgaben Loesungen 2:
 
 
