@@ -1,0 +1,226 @@
+not yet covered: Binary Search 
+------------
+
+Vergleichsoperatoren liefern Wahrheitswert:
+
+count = 0
+word = 'abcd'
+i = 2
+
+is_match = word[i] == 'c'
+count = count + is_match
+
+x = 2
+(x > 0) - (x < 0)
+
+------------
+
+Bem"
+'abc' 'def'
+
+Mention Patterns: z.B. start Wert im Auge behalten.
+=====================================================
+
+
+Recap: Vergleichsoperatoren, bedingte Anweisungen, Tuple.
+       break, continue
+
+1. Vergleichsop. liefern Wahrheitswerte True oder False (wie 1 und 0).
+Talk about Operatorprezedenz?
+
+x = 2
+x > 0, x < 0  # x > 0 - x < 0 is x > (0 - x) < 0
+
+x = 2
+(x > 0) - (x < 0)  # True - False -> 1
+
+x = -2
+(x > 0) - (x < 0)  # False - True -> -1
+
+x = 0
+(x > 0) - (x < 0)  # False - False -> 0
+
+if x > 0:
+    sign = 1
+elif x < 0:
+    sign = -1
+else:
+    sign = 0
+--
+x = 0
+
+if x > 0:
+    sign = 1
+elif x < 0:
+    sign = -1
+else:
+    sign = 0
+
+sign == (x > 0) - (x - 0)
+---
+
+Fix: Animnal, 13 max_len = len(names) -> max_len=100 (sinnvolle obere Schranke)
+
+- Review Aufgaben Aufgaben_L03_A.ipynb
+  1. Zahle Vorkommen + is_match (ohne if)
+  2. Occurrences (ohne if)
+  3. 1 mit if UND (neu, siehe unten) occurrences mit if
+  4. Fizzbuzz
+  5. first index of -1
+  6. 7. 'Ape Bear ...' first animal
+  8.    last animal
+  9. 10. 11. lstrip, rstrip und strip
+ 12. replace
+ 13. names min_len, max_len, 14. shortest, longest, 15. 10-letter names.
+
+Wieviele Namen mit i Buchstaben?
+Verteilung der Namenslaengen? (Histogramm)
+
+----- neu 3a occurrences mit if---
+word = 'abca'
+character = 'a'
+
+occurrences = ()
+
+n = len(word)
+for i in range(n):
+    if word[i] == character:
+        occurrences = occurrences + (i,)
+
+occurrences
+------------------
+
+==============================
+- Binary Search (skip? Selbststudium fuer Interessierte?)
+
+  Binary Search: too complicated! simplify before showing, 
+  then add stuff again.
+
+- Starte mit Baum (0..7). Erlaeutere update der Schranken.
+
+write code and comment, later add at bottom of for-loop:
+
+    if lower_bound == upper_bound:
+        break
+
+
+names = ('a', 'c', 'e', 'g', 'i', 'k', 'm')
+
+lower_bound = 0             # inklusiv
+upper_bound = len(names)    # exklusiv
+target = 'm'
+
+for i in range(upper_bound):
+    idx = (lower_bound + upper_bound) // 2
+    print('lower:', lower_bound, 'upper:', upper_bound, 'idx:', idx)
+    name = names[idx]
+
+    if name == target:
+        break
+    if name < target:          # zu klein
+        lower_bound = idx+1    # inklusiv
+    elif name > target:        # zu gross
+        upper_bound = idx      # exklusiv
+
+
+print('Tries:', i+1)
+names[idx]
+=============================
+
+Aufgaben_L02_A? zuerst binary search?
+5. Anzahl durch 3 teilbare Zahlen in (1, 100) 
+   numbers_ = tuple(range(3, 100, 3))
+
+10. Teste, ob n Primzahl !
+12. Binary Search
+
+---------omit, bereits geloest in L03 ----
+6. Wort spalten, ommit
+7. Buchstabe zaehlen, ommit
+8. Teste, ob Zeichen vorkommt
+9. Indices wo Zeichen vorkommt
+11. Buchstaben aus Wort loeschen
+---
+
+
+Pause ??
+
+----------------------
+neue Themen:
+Code wiederverwenden: Funktionen, Module (eigenes Module string_helpers.py anfangen!?)
+
+Funktion erstellen, z.B. print, max, ...
+
+Zuerst: lambda-Funktionen (ist ein Ausdruck)
+(x, y) -> x + y
+
+lambda x, y: x + y
+lambda <Argumente>: Ausdruck
+
+
+!! Argumente koennen als key-word Paare uebergeben werden !!
+
+--explore examples--
+get_distance2 = lambda p, q: ((q[0] - p[0])**2 + (q[1] - p[1])**2)**0.5
+
+p = (1, 2)
+q = (5, 5)
+get_distance2(p, q)
+
+insert_word = lambda s, sub, i: s[:i] + sub + s[i:]
+
+text = 'foobar'
+word = ' test '
+insert_word(text, word, 3)
+
+
+Aufgaben L04: 1--3.
+---------------------
+
+
+Dann kurz
+- Funktionsaufrufe (print, max, ...): Argumente uebergeben: genau wie bei lambdas!
+  print ist eine variadische Funktion.
+  nimmt variable Anzahl Argumente.
+- Triple-quoted Strings:  Doc-Strings
+- f-strings mit Aufgaben: Da sehr nuetzlich!
+
+
+
+
+Pause
+------
+Funktionen und Module
+
+1. - erstelle File modules/test.py
+  print('running test.py')
+  password = '123456'
+
+  import test, dann loesche output, reimport nichts passiert!
+
+2. aendere pin in test.py
+   restart kernel und reimport
+
+---------------------------
+Wollen nicht nur Variabeln/Daten importieren koennen,
+sondern auch Code.
+?? Wie koennen wir Code wiederverwenden ??
+
+
+
+Funktionen:
+
+
+Module: (random, string_helpers.py)
+
+-
+-
+-
+-
+-
+
+
+
+---------- ??? ----
+- Input
+- While-Loops
