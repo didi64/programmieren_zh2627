@@ -39,10 +39,6 @@ x = 2
 
 ------------
 
-Mention Patterns: z.B. start Wert im Auge behalten.
-=====================================================
-
-
 Recap: Vergleichsoperatoren, bedingte Anweisungen, Tuple.
        break, continue
 
