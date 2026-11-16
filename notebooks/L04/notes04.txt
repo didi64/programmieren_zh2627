@@ -10,6 +10,7 @@ Vergleichsoperatoren liefern Wahrheitswert:
 (1, 2) == (1, 2)
 'abc' == 'abc'
 
+
 type(2) is int
 type((1, 2)) is tuple
 type('abc') is str
@@ -85,9 +86,6 @@ Fix: Animnal, 13 max_len = len(names) -> max_len=100 (sinnvolle obere Schranke)
  12. replace
  13. names min_len, max_len, 14. shortest, longest, 15. 10-letter names.
 
-Wieviele Namen mit i Buchstaben?
-Verteilung der Namenslaengen? (Histogramm)
-
 ----- neu 3a occurrences mit if---
 word = 'abca'
 character = 'a'
@@ -116,7 +114,7 @@ if word[i] != character:
 i
 -----
 ==============================
-- Binary Search (skip? Selbststudium fuer Interessierte?)
+- Binary Search 
 
   Binary Search: too complicated! simplify before showing, 
   then add stuff again.
@@ -169,13 +167,13 @@ Aufgaben_L02_A?
 ---
 
 
-Pause ??
+Pause 
 
 ----------------------
 neue Themen:
 Code wiederverwenden: Funktionen, Module
 
-Funktion erstellen, z.B. print, max, ...
+Funktion erstellen, z.B. print, max, ... 
 
 Zuerst: lambda-Funktionen (ist ein Ausdruck)
 # Funktion add: (x, y) -> x + y
