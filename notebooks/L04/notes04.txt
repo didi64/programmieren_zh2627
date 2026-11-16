@@ -4,6 +4,7 @@ not yet covered: Binary Search, Aufgaben_L02_A, 5-11
 Ziel: Wie und in welcher Form koennen wir Code wiederverwenden?
 - Funktionen, Module
 
+Show Cheetsheat: Mention operator precedence
 
 
 Vergleichsoperatoren liefern Wahrheitswert:
@@ -17,8 +18,6 @@ type((1, 2)) is tuple
 type('abc') is str
 
 ---
-
-Vergleichsoperatoren, Rechnen mit Wahrheitswerten, Tuple
 
 count = 0
 word = 'abcd'
@@ -64,17 +63,15 @@ elif x < 0:
 else:
     sign = 0
 --
-x = 0
-
-if x > 0:
-    sign = 1
-elif x < 0:
-    sign = -1
-else:
-    sign = 0
 
 sign == (x > 0) - (x - 0)
 ---
+
+Show Cheatsheet:
+  Slicenotation: Weglassen ist gleichwertig mit None
+  'abcd'[2:]
+  'abcd'[2:None]
+  Mention operator precedence
 
 Fix: Animnal, 13 max_len = len(names) -> max_len=100 (sinnvolle obere Schranke)
      2 auch mit if
@@ -212,7 +209,6 @@ insert_word(text, word, 3)
 Aufgaben L04: 1--3.
 ---------------------
 
-
 Dann kurz
 - Funktionsaufrufe (print, max, ...): Argumente uebergeben: genau wie bei lambdas!
   print ist eine variadische Funktion.
@@ -246,17 +242,42 @@ def say_hello(name):
 
 
 Funktionen:
+complete find
+
+def find(s, sub, start=0, end=None):
+    '''gib den ersten Index von Substring sub
+       in s[start:end] zurueck oder -1
+    '''
+    s = s[start:end]
+#    if s == '' or sub == '':
+#        return -1              # early return, add later
+
+    n = len(s)
+    m = len(sub)
+
+    for i in range(n):
+        if s[i:i+m] == sub:
+            return start + i   # index, falls gefunden
+
+    return -1                  # falls nicht gefunden
+
+find('foobar', 'oo', start=1, end=3)
+
+
 
 Module: (random, string_helpers.py)
 
 
 
 Vorgehen zum Schreiben einer Funktion.
-Aufgaben 4,5,6  ...
 
----------- ??? ----
-- Input
-- While-Loops
+ erstelle in modules/string_helpers.py
+ fuege reverse words hinzu, importiere daraus.
+
+ koennen spaeter all diese Probleme einfacher loesen
+ geht darum zu zeigen, wie wir Code wiederverwenden koennen!
+
+Aufgaben 4,5,6  ...
 
 ---Loesungen Aufgaben_L04---
 
@@ -397,3 +418,22 @@ def strip(word):
             break
 
     return word[i:n-j+1]
+
+def find(s, sub, start=0, end=None):
+    '''gib den ersten Index von Substring sub
+       in s[start:end] zurueck oder -1
+    '''
+    s = s[start:end]
+    if s == '' or sub == '':
+        return -1              # early return
+
+    n = len(s)
+    m = len(sub)
+    end = end or n
+    for i in range(n):
+        if s[i:i+m] == sub:
+            return start + i   # index, falls gefunden
+
+    return -1                  # Wert, falls nicht gefunden
+
+find('foobar', 'oo', start=1, end=3)
