@@ -4,9 +4,6 @@ not yet covered: Binary Search, Aufgaben_L02_A, 5-11
 Ziel: Wie und in welcher Form koennen wir Code wiederverwenden?
 - Funktionen, Module
 
-Show Cheetsheat: Mention operator precedence
-
-
 Vergleichsoperatoren liefern Wahrheitswert:
 
 2 == 2
