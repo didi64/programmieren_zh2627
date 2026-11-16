@@ -1,22 +1,43 @@
-not yet covered: Binary Search 
+not yet covered: Binary Search, Aufgaben_L02_A, 5-11
 ------------
 
+Ziel: Wie und in welcher Form koennen wir Code wiederverwenden?
+- Funktionen, Module
+
+
+
 Vergleichsoperatoren liefern Wahrheitswert:
+
+2 == 2
+(1, 2) == (1, 2)
+'abc' == 'abc'
+
+type(2) is int
+type((1, 2)) is tuple
+type('abc') is str
+
+---
+
+Vergleichsoperatoren, Rechnen mit Wahrheitswerten, Tuple
 
 count = 0
 word = 'abcd'
 i = 2
 
-is_match = word[i] == 'c'
+is_match = (word[i] == 'c')
 count = count + is_match
+
+(i,) * is_match
+
+
+occurrences = ()
+occurrences = occurrence + ((i,)
+
 
 x = 2
 (x > 0) - (x < 0)
 
 ------------
-
-Bem"
-'abc' 'def'
 
 Mention Patterns: z.B. start Wert im Auge behalten.
 =====================================================
@@ -60,6 +81,7 @@ sign == (x > 0) - (x - 0)
 ---
 
 Fix: Animnal, 13 max_len = len(names) -> max_len=100 (sinnvolle obere Schranke)
+     2 auch mit if
 
 - Review Aufgaben Aufgaben_L03_A.ipynb
   1. Zahle Vorkommen + is_match (ohne if)
@@ -89,7 +111,20 @@ for i in range(n):
 
 occurrences
 ------------------
+# 5 ohne result= Falase
+word = 'abcdefgh'
+character = 'x'
+n = len(word)
 
+for i in range(n):
+    if word[i] == character:
+        break
+
+if word[i] != character:
+    i = -1
+
+i
+-----
 ==============================
 - Binary Search (skip? Selbststudium fuer Interessierte?)
 
@@ -127,7 +162,8 @@ print('Tries:', i+1)
 names[idx]
 =============================
 
-Aufgaben_L02_A? zuerst binary search?
+Aufgaben_L02_A? 
+
 5. Anzahl durch 3 teilbare Zahlen in (1, 100) 
    numbers_ = tuple(range(3, 100, 3))
 
@@ -147,16 +183,19 @@ Pause ??
 
 ----------------------
 neue Themen:
-Code wiederverwenden: Funktionen, Module (eigenes Module string_helpers.py anfangen!?)
+Code wiederverwenden: Funktionen, Module
 
 Funktion erstellen, z.B. print, max, ...
 
 Zuerst: lambda-Funktionen (ist ein Ausdruck)
+# Funktion add: (x, y) -> x + y
 (x, y) -> x + y
 
-lambda x, y: x + y
+add = lambda x, y: x + y
 lambda <Argumente>: Ausdruck
 
+add(2, 3)
+add('foo', 'bar')
 
 !! Argumente koennen als key-word Paare uebergeben werden !!
 
@@ -185,7 +224,7 @@ Dann kurz
 - Triple-quoted Strings:  Doc-Strings
 - f-strings mit Aufgaben: Da sehr nuetzlich!
 
-
+Aufgaben_L04, 4
 
 
 Pause
@@ -206,20 +245,18 @@ Wollen nicht nur Variabeln/Daten importieren koennen,
 sondern auch Code.
 ?? Wie koennen wir Code wiederverwenden ??
 
+def say_hello(name):
+    print('hello', name)
 
 
 Funktionen:
 
-
 Module: (random, string_helpers.py)
 
--
--
--
--
--
 
 
+Vorgehen zum Schreiben einer Funktion.
+Aufgaben 4,5,6  ...
 
 ---------- ??? ----
 - Input
