@@ -261,3 +261,143 @@ Aufgaben 4,5,6  ...
 ---------- ??? ----
 - Input
 - While-Loops
+
+---Loesungen Aufgaben_L04---
+
+1.
+sign = lambda x: (x > 0) - (x < 0)
+get_distance = lambda p, q: ((q[0] - p[0])**2 + (q[1] - p[1])**2)**0.5
+insert_word = lambda s, word, i: s[:i] + word + s[i:]
+
+2.
+feedbacks = ('correct', 'too small', 'too big')
+secret = 42
+
+get_feedback = lambda guess: feedbacks[sign(secret - guess)]
+
+3.
+get_board = lambda: position[:3] + '\n' + position[3:6] + '\n' + position[6:]
+place_stone = lambda char, i: position[:i] + char + position[i+1:]
+
+position = 'X.O..O..X'
+print(get_board())
+
+print('\nnew position:')
+position = place_stone('X', 4)
+print(get_board())
+
+4.
+get_board = lambda: f'{position[:3]}\n{position[3:6]}\n{position[6:]}'
+place_stone = lambda char, i: f'{position[:i]}{char}{position[i+1:]}'
+
+dito
+
+5.
+def reverse_word(word):
+    '''word: str -> str
+       gibt das umgedrehte Wort zurueck
+    '''
+    reversed_word = ''
+    for c in word:
+        reversed_word = c + reversed_word
+
+    return reversed_word
+
+
+def is_prime(n):
+    '''gibt True zurueck, falls n eine Primzahl
+       sonst False
+    '''
+    if type(n) is not int or n < 2:
+        return False
+
+    bound = int(n**0.5 + 1)
+    for i in range(2, bound):
+        if n % i == 0:
+            return False
+
+    return True
+
+words = ('foobar', 'Sugus', 'abcd')
+
+for word in words:
+    print(reverse_word(word) == word[::-1])
+
+primes = ()
+for i in range(100):
+    if is_prime(i):
+        primes = primes + (i,)
+
+primes[:3], primes[-5:], len(primes)
+
+6.
+import random
+
+
+def get_random_pin():
+    '''lieferr einen zufälligen 4-stelligen Pin (z.B. '3867')'''
+    pin = ''
+    for _ in range(4):
+        digit = str(random.randint(1, 9))
+        pin = pin + digit
+
+    return pin
+
+
+def get_random_numbers(n, lower=1, upper=9):
+    '''liefert ein Tuple mit n Zufallszahlen 
+       im Bereich (lower, ..., upper).
+    '''
+    numbers = ()
+    for _ in range(n):
+        number = random.randint(lower, upper)
+        numbers = numbers + (number,)
+
+    return numbers
+
+7.
+def delete_character(word, character):
+    '''word: str
+       character: str der Laenge 1
+       entfernt aus word alle Vorkommmen von character
+       und gibt das resulierende Wort zurueck
+    '''
+    result = ''
+    for c in word:
+        if c == character:
+            continue
+        result = result + c
+
+    return result
+
+
+def replace_char(word, character, new_character):
+    '''ersetzt in word jedes Vorkommen von
+       character durch new_character
+    '''
+    result = ''
+    for c in word:
+        if c == character:
+            result = result + new_character
+        else:
+            result = result + c
+
+    return result
+
+
+def strip(word):
+    '''entfernt allen Space vor und nach dem Wort
+       und gibt dann das Wort zurueck
+    '''
+    SPACE = ' '
+    n = len(word)
+
+    for i in range(n):
+        if word[i] != SPACE:
+            break
+
+    for j in range(1, n+1):
+        if word[-j] != SPACE:
+            break
+
+    return word[i:n-j+1]
