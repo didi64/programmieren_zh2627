@@ -43,13 +43,13 @@ fi
 
 process_path () {
     echo "processing $1"
-    local item=''
+    local item="$1"
 
-    if [[ "$1" != ${repo_url}/* ]]; then # not full path
-        item="${repo_url}/notebooks/$1"
-    else
-        item="$1"
-    fi
+#    if [[ "$1" != ${repo_url}/* ]]; then # not full path
+#        item="${repo_url}/notebooks/$1"
+#    else
+#        item="$1"
+#    fi
 
     if [[ -f $item ]]; then  # file
         if [[ "$ANSWER" == "" ]]; then
@@ -105,16 +105,17 @@ git -C "$repo_url" reset --hard origin/main
 for item in "$@"; do
     if [[ $item =~ $is_number ]] && ((item < 50)); then  # process the files in $contents
         files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
+        lesson=$(printf "%02d" $item)
+        echo "Content of lesson $lesson:"
+        echo "$files"
+
         for file in $files; do
-            # echo "lesson: $item, file: $file"
-            lesson=$(printf "%02d" $item)  
-            # echo "lesson: $lesson"
-            process_path "L${lesson}/$file"
+            process_path "${repo_url}/notebooks/L${lesson}/$file"
         done
     elif [[ $item =~ $is_number ]] && ((item >= 50)); then
         files=$(sed -n "s/^${item}:\(.*\)/\1/p" "$contents")
         for file in $files; do
-            process_path "$file"
+            process_path "${repo_url}/notebooks/$file"
         done
     elif [[ "$item" == "scratch" ]]; then
         mapfile -t -d '' candidates < <(find "$repo_url" -path "$repo_url/notebooks/scratch/*" -print0)
