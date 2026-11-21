@@ -45,12 +45,6 @@ process_path () {
     echo "processing $1"
     local item="$1"
 
-#    if [[ "$1" != ${repo_url}/* ]]; then # not full path
-#        item="${repo_url}/notebooks/$1"
-#    else
-#        item="$1"
-#    fi
-
     if [[ -f $item ]]; then  # file
         if [[ "$ANSWER" == "" ]]; then
                 cp $item -i "$nb_dir"

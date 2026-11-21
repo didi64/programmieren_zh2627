@@ -1,0 +1,182 @@
+Phillip Schaerli, teste ob contents.cfg aktuell
+
+Moti: Files bekommen?
+
+in ~/work im Juptyerlab Terminal
+cp -r .src/notebooks/L04/Module_und_Funktionen .
+=========
+
+
+====
+restart with lambdas (hint at purpose of lambdas)
+        then show Recap_1
+
+add = lambda x, y: x + y
+add('foo', 'bar')
+
+add = lambda x, y=1: x + y
+add(5)
+add(5, 5)
+
+identity = lambda x: x
+
+
+insert = lambda s, sub, i: s[:] + sub + s[:]
+insert('abcd' ' xxx ', 2)
+
+--- turn this into a function minimum(values, key=lambda x: x) ---
+# finde einen kleinsten Wert
+values = (5, 2, 3)
+
+minimum = values[0]
+for value in values[1:]:
+    if value < minimum:
+        minimum = value
+
+minimum
+---
+# Minimum-Funktion
+
+def minimum(values):
+    minimum = values[0]
+    for value in values[1:]:
+        if value < minimum:
+            minimum = value
+    
+    return minimum
+
+
+vgl. (sidenote)
+
+def minimum():
+    minimum = values[0]
+    for value in values[1:]:
+        if value < minimum:
+            minimum = value
+    
+    return minimum
+
+
+def minimum(words):
+    '''gib ein kuerzestes Wort aus word zurueck'''
+    minimum = words[0]
+    for word in words[1:]:
+        if len(word) < len(minimum):
+            minimum = word
+
+    return minimum
+
+def minimum(words, key=lambda x: x): # or with key=lambda x: x as default
+
+Look at Recap_Funktions
+
+----------------------
+import random
+random.randint(1, 6)
+
+def wuerfle():
+    return random.randint(1, 6)
+
+-> L04/Module_und_Funktionen/Module_I
+Dann Inhalt Ratespiel.ipynb
+
+
+lower = 1
+upper = 10
+secret = random.randint(lower, upper)
+ --
+guess = 5  # Zelle, die den Rateversuch guess evaluiert
+
+if guess < secret:
+    print('too small')
+elif guess > secret:
+    print('too big')
+else:
+    print('correct')
+
+-extend to
+def new_game(lower, upper):
+    secret = random.randint(lower, upper)
+    return secret
+
+
+def evaluate_guess(guess):
+    if guess < secret:
+        print('too small')
+    elif guess > secret:
+        print('too big')
+    else:
+        print('correct')
+
+->Ratespiel.ipynb
+
+def evaluate_guess(guess):
+    '''alternative Implementation'''
+    feedbacks = ('correct', 'too big', 'too small')
+    sign = lambda x: (x > 0) - (x < 0)
+    idx = sign(guess - secret)
+    feedback = feedbacks[idx]
+    return feedback
+----
+
+
+review Funktionen_I, Fokus on Default-Argumente.
+
+TikTak in same style
+I demonstrate it, try to complete, 
+  maybe look at solutions in TikTakToe_fun
+
+1.
+def show_board(position):
+
+s = 'abcdefghi'
+t = f'{s[:3]}\n{s[3:6]}\n{s[6:]}'
+print(t)
+
+
+
+2.
+def place_char(s, char, i):
+
+s = '...'
+char = 'X'
+i = 1
+
+s_new = s[:i] + char + s[i+1:]
+s_new
+
+3.
+def get_chars_at_idxs(s, idxs):
+
+s = 'abcde'
+idxs = (0, 2, 4)
+
+result = ''
+for i in idxs:
+    result = result + s[i]
+
+result
+
+4. def do_idxs_match_char(word, idxs, char):
+s = '0x2xx5'
+char = 'x'
+idxs = (1, 3, 4)
+
+chars = get_chars_at_idxs(s, idxs)
+chars == char * len(idxs)
+
+5. def is_tiktak(position, player):
+position = '...XXX...'
+char = 'X'
+
+
+winners = ((0, 1, 2), (3, 4, 5), (6, 7, 8))
+for idxs in winners:
+    if do_idxs_match_char(position, idxs, char):
+        print(f'{char} wins')
+--------------------------
+
+Lasse Aufgaben L04 loesen.
+
+Challenge for staerkere Studis: 
+
