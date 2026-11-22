@@ -1,5 +1,4 @@
 Phillip Schaerli, teste ob contents.cfg aktuell
-
 Moti: Files bekommen?
 
 in ~/work im Juptyerlab Terminal
@@ -180,3 +179,8 @@ Lasse Aufgaben L04 loesen.
 
 Challenge for staerkere Studis: 
 
+
+L06: while, input
+L07: Objecte stringmethoden, unpacking, enumerate, zip
+     Listen, Listcomprehension, sorting
+L08: Files, Dicts, sets
