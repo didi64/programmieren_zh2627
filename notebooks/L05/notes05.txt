@@ -10,6 +10,15 @@ cp -r .src/notebooks/L04/Module_und_Funktionen .
 restart with lambdas (hint at purpose of lambdas)
         then show Recap_1
 
+double = lambda x: 2*x
+double(2)
+double('foo')
+
+get_line = lambda: 50*'-'
+line = get_line()
+line
+print(line)
+
 add = lambda x, y: x + y
 add('foo', 'bar')
 
@@ -19,9 +28,22 @@ add(5, 5)
 
 identity = lambda x: x
 
+s = 'abcd'
+sub = ' foo ' 
+i = 2
 
-insert = lambda s, sub, i: s[:] + sub + s[:]
+s[:] + sub + s[:]
+s[:i] + sub + s[i:]
+--
+insert = lambda s, sub, i: s[:i] + sub + s[i:]
 insert('abcd' ' xxx ', 2)
+
+
+#side effect:
+say_hello = lambda: print('hello')
+result = say_hello()
+
+print(result)
 
 --- turn this into a function minimum(values, key=lambda x: x) ---
 # finde einen kleinsten Wert
@@ -67,9 +89,21 @@ def minimum(words):
 
 def minimum(words, key=lambda x: x): # or with key=lambda x: x as default
 
+# Finde Punkt mit kleinstem Abstand vom Ursprung 
+points = ((3, -1), (3, 1), (2, 2))
+minimum(points, key=lambda p: p[0]**2 + p[1]**2)
+
 Look at Recap_Funktions
+Look at Funktionen point out default argumente und lokale Variabeln!
 
 ----------------------
+Module (.py Files mit Python Code)
+Nach dem Import eines Modules kann man
+auf die Variablen und Funktionen, die in diesem File definert/zugewiesen wurden
+zugreifen.
+
+Bsp: Das Modul random
+
 import random
 random.randint(1, 6)
 
@@ -77,13 +111,16 @@ def wuerfle():
     return random.randint(1, 6)
 
 -> L04/Module_und_Funktionen/Module_I
-Dann Inhalt Ratespiel.ipynb
 
 
+Dann Inhalt Ratespiel.ipynb vorfuehren:
+
+--Zelle 1--
 lower = 1
 upper = 10
 secret = random.randint(lower, upper)
- --
+
+ --Zelle 2 --
 guess = 5  # Zelle, die den Rateversuch guess evaluiert
 
 if guess < secret:
@@ -107,8 +144,18 @@ def evaluate_guess(guess):
     else:
         print('correct')
 
-->Ratespiel.ipynb
 
+add secret as 2nd Argument
+-- Zelle 1
+secret = new_game(1, 5)  # Zelle, die secret Zufallszahl zuweist
+
+-- Zelle 2
+guess = 5               
+evaluate_guess(guess, secret)
+
+
+-> Ratespiel.ipynb
+--- omit
 def evaluate_guess(guess):
     '''alternative Implementation'''
     feedbacks = ('correct', 'too big', 'too small')
@@ -119,7 +166,7 @@ def evaluate_guess(guess):
 ----
 
 
-review Funktionen_I, Fokus on Default-Argumente.
+
 
 TikTak in same style
 I demonstrate it, try to complete, 
@@ -175,9 +222,10 @@ for idxs in winners:
         print(f'{char} wins')
 --------------------------
 
-Lasse Aufgaben L04 loesen.
+Lasse Aufgaben_L04 loesen. insbes. 7. kopiere in modules/string_helpers.py
+Dann AUfgaben_L05
+----------
 
-Challenge for staerkere Studis: 
 
 
 L06: while, input
