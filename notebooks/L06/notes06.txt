@@ -1,0 +1,470 @@
+Pausen!
+test option: request control
+
+While, Input to L07
+
+Starte mit einigen AufgabenL04, L05
+Erstellen nur Modul modules/string_helpers.py
+
+Betrachten das als Uebung einfache Programmierprobleme zu loesen
+Sehen heute, dass Python bereits Methoden zur Verfuegung stellt,
+welche dies Probleme bequem loesen!
+
+
+A04: lstrip, rstrip and strip
+Finde erstes Vorkommen eines non-space.
+Greife Rest des Strings heraus.
+
+Das selbevon hinten
+
+
+SPACE = ' '
+n = len(word)
+
+for i in range(n):
+    if word[i] != SPACE:
+        break
+
+word[i:]
+
+
+def lstrip(word):
+    SPACE = ' '
+    n = len(word)
+
+    for i in range(n):
+        if word[i] != SPACE:
+            break
+
+    return word[i:]
+
+s = 'abc'
+s[-0]
+s[-1]
+s[-2]
+s[-3] # erstes Zeichen s[-n] for n=len(s)
+
+
+SPACE = ' '
+n = len(word)
+
+for j in range(1, n+1):
+    if word[-j] != SPACE:
+        break
+
+word[:n-j+1]
+
+
+
+def rstrip(word):
+    SPACE = ' '
+    n = len(word)
+
+    for j in range(1, n+1):
+        if word[-j] != SPACE:
+            break
+
+    return word[:n-j+1]
+
+
+def strip(word):
+    '''entfernt allen Space vor und nach dem Wort
+       und gibt dann das Wort zurueck
+    '''
+    return lstrip(rstrip(word))
+
+
+
+-> copiere in modules/string_helpers.py
+
+
+
+
+neues Notebook
+
+import string_helpers as S
+
+split # wo kommt das Trennzeichen vor?
+      # spalte dann String an diesen Positionen
+
+s = 'a, b, c, d'
+char = ','
+occurrences = ()
+n = len(s)
+
+for i in range(n):
+    if (s[i] == char):
+        occurrences = occurrences + (i,)
+
+occurrences
+
+
+def get_occurrences(s, char):
+    occurrences = ()
+    n = len(s)
+
+    for i in range(n):
+        if (s[i] == char):
+            occurrences = occurrences + (i,)
+
+    return occurrences
+
+
+
+
+
+SEP = ','
+s = 'a, b, c, d'
+
+
+occurrences = get_occurrences(s, SEP) + (len(s),)
+items = ()
+
+start = 0
+for i in occurrences:
+    item = s[start:i]
+    start = i+1
+
+    item = S.strip(item)
+    items = items + (item,)
+   
+occurrences
+
+
+
+def split(s, sep=','):
+    occurrences = get_occurrences(s, sep) + (len(s),)
+    items = ()
+   
+
+    start = 0
+    for i in occurrences:
+        item = s[start:i]
+        start = i+1
+
+        item = S.strip(item)
+        items = items + (item,)
+       
+    return items
+
+
+kopiere nach string_helpers.py
+AENDERE S.foo() zu foo() in string_helpers.py!!
+-----------
+
+Neues Thema: Objekte und ihre Methoden.
+
+Objekte schon gesehen jeder  Integer, String, Tuple,... ist auch ein Objekt.
+Und diese Objekt hat sogl. Methoden!
+
+s= 'abCD'
+s. type tab, waehle s.upper und zeige Hilfe an!
+
+s.lower()
+
+s.
+weise hin auf
+upper, lower, index, find, replace, strip und ljust
+
+-> Methoden
+
+Stringmethoden, Beispiele zur Verwendung der obigen Methoden:
+
+s = '  abCDa  '
+s.upper()
+s.lower()
+s.index('b')
+s.index('x')
+s.find('b')
+s.find('x')
+s.replace('a', 'x')
+t = s.strip()
+t
+
+
+t_10 = t.ljust(10)
+len(t_10)
+
+print(t_10+t_10)
+
+-----
+Listen: erster mutable/veraenderbarer Typ!
+
+xs = [1, 2, 3]
+ys = xs
+
+ys
+
+ys[0] = 0
+xs  # ??
+
+
+xs  und ys ist das gleiche Objekt!
+xs is ys # True
+
+id(xs)  # hex(id(xs))
+id(yx)  # hex(id(ys)) 
+
+# + erstellt neue Liste!
+zs = xs + [5]
+zs
+
+xs is zs 
+
+
+
+- > Listen:
+
+-----
+Listen:
+
+xs = [0, 1, 2, 3]
+xs
+
+append:
+xs.append(5)
+
+pop
+last = xs.pop()
+xs
+
+1. Element
+second = xs.pop(1)
+second
+
+xs
+
+ys = (5, 6, 7)
+xs.extend(ys)
+ys
+-----------
+
+# vertausche 2 Elemente
+xs = [1, 2, 3]
+i = 1
+j = 2
+
+x = xs[i]      # speichere xs[i]
+xs[i] = xs[j]
+xs[j] = x
+
+xs
+
+def swap(items, i, j):
+    item = items[i]
+    items[i] = items[j]
+    items[j] = item
+
+numbers = [4, 2, 6, 7]
+swap(numbers, 1, 2)
+numbers
+
+
+-> Objekte, plus Python Tutor!
+
+Groesseres Beispiel zu Listen
+
+Bubble Sort:
+-----------
+def swap(items, i, j):
+    item = items[i]
+    items[i] = items[j]
+    items[j] = item
+
+def bubble_up_0(items):
+    n = len(items)
+    for i in range(n-1):
+        if items[i] > items[i+1]:
+            swap(items, i, i+1)
+
+def bubble_up(items, k=0):
+    n = len(items) - k
+    for i in range(n-1):
+        if items[i] > items[i+1]:
+            swap(items, i, i+1)
+
+def bubble_sort_0(items):
+    n = len(items) - 1
+    for i in range(n):
+        bubble_up(items)
+
+def bubble_sort(items):
+    n = len(items) - 1
+    for i in range(n):
+        bubble_up(items, k=i)
+
+def recursive_bubble_sort(items, k=0):
+    print(f'{'    '*k}depth={k}, sorting {items[:len(items)-k]}')
+    if len(items) - k < 2:
+        return
+
+    bubble_up(items, k)
+    recursive_bubble_sort(items, k=k+1)
+----------
+
+Input
+name = input('dein Name')
+name
+
+x = int(input('Zahl?'))
+x
+
+While Intro
+
+counter = 3
+while counter >= 0:
+    print(counter)
+    counter = counter - 1
+
+counter = 3
+while True:
+    print(counter)
+    counter = counter - 1
+
+    if counter < 0:
+        break
+
+-> While
+---------
+
+
+
+
+
+
+
+
+
+
+--- string_helpers.py ---
+
+def delete_character(word, character):
+    '''word: str
+       character: str der Laenge 1
+       entfernt aus word alle Vorkommmen von character
+       und gibt das resulierende Wort zurueck
+    '''
+    result = ''
+    for c in word:
+        if c == character:
+            continue
+        result = result + c
+
+    return result
+
+
+def replace_char(word, character, new_character):
+    '''ersetzt in word jedes Vorkommen von
+       character durch new_character
+    '''
+    result = ''
+    for c in word:
+        if c == character:
+            result = result + new_character
+        else:
+            result = result + c
+
+    return result
+
+
+def lstrip(word):
+    '''entfernt allen Space vor und nach dem Wort
+       und gibt dann das Wort zurueck
+    '''
+    SPACE = ' '
+    n = len(word)
+
+    for i in range(n):
+        if word[i] != SPACE:
+            break
+
+    return word[i:]
+
+
+def rstrip(word):
+    '''entfernt allen Space vor und nach dem Wort
+       und gibt dann das Wort zurueck
+    '''
+    SPACE = ' '
+    n = len(word)
+
+    for j in range(1, n+1):
+        if word[-j] != SPACE:
+            break
+
+    return word[:n-j+1]
+
+
+def strip(word):
+    '''entfernt allen Space vor und nach dem Wort
+       und gibt dann das Wort zurueck
+    '''
+    return lstrip(rstrip(word))
+
+
+def find(s, sub, start=0, end=None):
+    '''gib den ersten Index von Substring sub
+       in s[start:end] zurueck oder -1
+    '''
+    s = s[start:end]
+    if s == '' or sub == '':
+        return -1              # early return
+
+    n = len(s)
+    m = len(sub)
+
+    for i in range(n):
+        if s[i:i+m] == sub:
+            return start + i   # index, falls gefunden
+
+    return -1                  # falls nicht gefunden
+
+
+def get_chars_at_idxs(word, idxs):
+    '''word: str
+       idxs: tuple with indices
+       returns the string formed of
+       the characters word[i] for i in idxs
+
+       get_positions('abcde', (2, 4)) -> 'ce'
+    '''
+    result = ''
+    for i in idxs:
+        result = result + word[i]
+
+    return result
+
+
+def get_occurrences(word, char):
+    '''returns a tuple with all the positions
+       where char occurs in word
+    '''
+    occurrences = ()
+    n = len(word)
+
+    for i in range(n):
+        if (word[i] == char):
+            occurrences = occurrences + (i,)
+
+    return occurrences
+
+
+def split(s, sep=','):
+    '''Trenne den String s bei sep und
+       gib ein Tuple mit den Teilen zurueck
+
+       split('foo, bar, baz') -> ('foo', 'bar', 'baz')
+       split('foo, bar, baz,') -> ('foo', 'bar', 'baz', '')
+    '''
+    items = ()
+    occurrences = get_occurrences(s, sep) + (len(s),)
+
+    start = 0
+    for i in occurrences:
+        item = s[start:i]
+        item = strip(item)
+        items = items + (item,)
+        start = i+1
+
+    return items
+--------------------------
